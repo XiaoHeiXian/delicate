@@ -1,0 +1,4 @@
+/* pages/menu/things/things.wxss */
+form-group .title {
+  min-width: calc(4em + 15px);
+}

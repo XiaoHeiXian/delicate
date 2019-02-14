@@ -1,0 +1,97 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 背景颜色
+    </navigator>
+  </bar>
+</custom>
+<bar class="search fixed" style="top:{{CustomBar}}px">
+  <view class='serach-form round'>
+    <icon class="icon-search" />
+    <input type="text" placeholder="搜索物品" confirm-type="search" bindinput='searchThing' />
+    <button class='bg-grey radius light' bindtap="showModal" data-target="DialogModal1" style="height: 100%;width: 10%;">
+      +
+    </button>
+  </view>
+</bar>
+<modal-box class="{{modalName=='DialogModal1'?'show':''}}">
+  <dialog>
+    <bar class="justify-end">
+      <view class='content'>Modal标题</view>
+      <view class='action' bindtap='hideModal'>
+        <icon class='icon-close text-red'></icon>
+      </view>
+    </bar>
+    <view style="background:#f1f1f1;">
+      <form>
+
+        <form-group class="margin-top">
+          <view class='title'>物品名</view>
+          <input placeholder="请输入物品名" class='radius' name='input'></input>
+        </form-group>
+
+        <form-group class="margin-top">
+          <view class='title'>普通选择</view>
+          <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+            <view class="picker">
+              {{index?picker[index]:'禁止换行，超出容器部分会以 ... 方式截断'}}
+            </view>
+          </picker>
+        </form-group>
+        
+        <form-group>
+          <view class='title'>时间选择</view>
+          <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
+            <view class="picker">
+              {{time}}
+            </view>
+          </picker>
+        </form-group>
+        <form-group>
+          <view class='title'>日期选择</view>
+          <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange">
+            <view class="picker">
+              {{date}}
+            </view>
+          </picker>
+        </form-group>
+        <form-group class="margin-top" wx:hide="{{modalName==null}}">
+          <textarea placeholder="多行文本输入框" maxlength="-1" disabled="{{modalName!=null}}" placeholder-class='placeholder'></textarea>
+        </form-group>
+      </form>
+    </view>
+    <bar class="justify-end">
+      <view class='action'>
+        <button class='line-green text-green' bindtap='hideModal'>取消</button>
+        <button class='bg-green margin-left' bindtap='hideModal'>确定</button>
+
+      </view>
+    </bar>
+  </dialog>
+</modal-box>
+<bar class="solid-bottom">
+  <view class='action'>
+    淡色背景
+  </view>
+</bar>
+<view class='grid col-3 bg-white padding-sm'>
+  <view class='padding-sm' wx:for="{{ColorList}}" wx:key wx:if="{{index<12 && item.isShow}}">
+    <view class='bg-{{item.name}} padding radius text-center light'>
+      <view class="text-lg">{{item.title}}</view>
+      <view class='margin-top-sm text-Abc'>{{item.name}}</view>
+    </view>
+  </view>
+</view>
+<bar class="solid-bottom">
+  <view class='action'>
+    淡色背景
+  </view>
+</bar>
+<view class='grid col-3 bg-white padding-sm'>
+  <view class='padding-sm' wx:for="{{ColorList}}" wx:key wx:if="{{index<12 && item.isShow}}">
+    <view class='bg-{{item.name}} padding radius text-center light'>
+      <view class="text-lg">{{item.title}}</view>
+      <view class='margin-top-sm text-Abc'>{{item.name}}</view>
+    </view>
+  </view>
+</view>

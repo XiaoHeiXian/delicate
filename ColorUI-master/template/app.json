@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/home/home",
+    "pages/mine/mine",
+    "pages/menu/timeline/timeline",
+    "pages/menu/things/things"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "ColorUI",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#aaa",
+    "selectedColor": "#39b54a",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tabbar/component.png",
+        "selectedIconPath": "/images/tabbar/component_cur.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/images/tabbar/basics.png",
+        "selectedIconPath": "/images/tabbar/basics_cur.png",
+        "text": "菜单"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "/images/tabbar/plugin.png",
+        "selectedIconPath": "/images/tabbar/plugin_cur.png",
+        "text": "扩展"
+      }
+    ]
+  }
+  
+}
