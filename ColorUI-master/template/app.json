@@ -4,7 +4,8 @@
     "pages/home/home",
     "pages/mine/mine",
     "pages/menu/timeline/timeline",
-    "pages/menu/things/things"
+    "pages/menu/things/things",
+    "pages/menu/accounts/accounts"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -9,7 +9,7 @@ Page({
       { title: '物品', name: 'things', color: 'brown', icon: 'tagfill' },
       
       
-      { title: '记账', name: 'bar', color: 'purple', icon: 'vipcard' },
+      { title: '记账', name: 'accounts', color: 'purple', icon: 'vipcard' },
       
       { title: '技能', name: 'list', color: 'pink', icon: 'list' },
       

@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
 	"appid": "wxc45540305e056517",
-	"projectname": "Delicate-life",
+	"projectname": "template",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -48,7 +48,14 @@
 				{
 					"id": -1,
 					"name": "timeline",
-					"pathName": "pages/menu/things/things"
+					"pathName": "pages/menu/things/things",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "accounts",
+					"pathName": "pages/menu/accounts/accounts",
+					"scene": null
 				}
 			]
 		}
