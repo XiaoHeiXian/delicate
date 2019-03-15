@@ -5,7 +5,11 @@
     "pages/mine/mine",
     "pages/menu/timeline/timeline",
     "pages/menu/things/things",
-    "pages/menu/accounts/accounts"
+    "pages/menu/accounts/accounts",
+    "pages/menu/accounts/wallet/wallet",
+    "pages/menu/accounts/charts/charts",
+    "pages/menu/accounts/me/me",
+    "pages/menu/eat/eat"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -36,7 +40,7 @@
         "pagePath": "pages/mine/mine",
         "iconPath": "/images/tabbar/plugin.png",
         "selectedIconPath": "/images/tabbar/plugin_cur.png",
-        "text": "扩展"
+        "text": "留言"
       }
     ]
   }

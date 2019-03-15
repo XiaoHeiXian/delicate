@@ -1,2 +1,24 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content'>留言</view>
+  </bar>
+</custom>
+<view class="cu-list menu menu-avatar comment solids-top">
+  <view class="cu-item" wx:for="{{comment}}" wx:key>
+    <view class="cu-avatar round" style="background-image:url({{item.avatar}});"></view>
+    <view class='content'>
+      <view class='text-grey'>{{item.name}}</view>
+      <view class='text-gray text-content text-df'>
+        {{item.message}}
+      </view>
+      <view class='margin-top-sm flex justify-between'>
+        <view class='text-gray text-df'>{{item.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-bar foot input">
+  <!-- <input class='solid-bottom' focus="true" maxlength="300" cursor-spacing="10"></input> -->
+  <input class='solid-bottom' maxlength="30" bindinput="messageInput" value='{{message}}'></input>
+  <button class='cu-btn bg-green shadow' bindtap='send'>发送</button>
+</view>

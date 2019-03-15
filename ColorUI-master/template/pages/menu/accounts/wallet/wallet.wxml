@@ -1,0 +1,70 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 钱包
+    </navigator>
+  </bar>
+</custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    账户列表
+  </view>
+  <!-- <view class='action'>
+    <button class='cu-btn bg-green shadow' bindtap="showModal" data-target="menuModal">+</button>
+  </view> -->
+</view>
+<view class="cu-modal {{modalName=='menuModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-gray justify-end">
+      <view class='content'>请输入 <text class='text-{{typeColor}}'>{{typeName}}</text> 金额</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='padding-xl bg-gray'>
+      <input class='bg-white' name='input' bindinput='formNum' value="{{num}}"></input>
+    </view>
+    <view class="cu-bar bg-gray justify-end">
+      <view class='action'>
+        <button class='cu-btn line-green text-green' bindtap='hideModal'>取消</button>
+        <button class='cu-btn bg-green margin-left' bindtap='add'>确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class='content'>
+      <text class='fa fa-money text-orange' style='margin-right:4%'></text>
+      <text class='text-grey'>现金</text>
+      <text class='icon-write fr text-grey' bindtap="showModal" data-target="menuModal" data-id="money"></text>
+      <text class='text-grey fr'>{{money}}</text>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class='content'>
+      <text class='fa fa-weixin text-olive' style='margin-right:4%'></text>
+      <text class='text-grey'>微信</text>
+      <text class='icon-write fr text-grey' bindtap="showModal" data-target="menuModal" data-id="weixin"></text>
+      <text class='text-grey fr'>{{weixin}}</text>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <navigator class='content' hover-class='none' url='../list/list' open-type="redirect">
+      <text class='text-blue' style='margin-right:4%'>支</text>
+      <text class='text-grey'>支付宝</text>
+      <text class='icon-write fr text-grey' bindtap="showModal" data-target="menuModal" data-id="alipay"></text>
+      <text class='text-grey fr'>{{alipay}}</text>
+    </navigator>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <navigator class='content' hover-class='none' url='../list/list' open-type="redirect">
+      <text class='fa fa-credit-card text-grey' style='margin-right:4%'></text>
+      <text class='text-grey'>银行卡</text>
+      <text class='icon-write fr text-grey' bindtap="showModal" data-target="menuModal" data-id="card"></text>
+      <text class='text-grey fr'>{{card}}</text>
+    </navigator>
+  </view>
+
+</view>

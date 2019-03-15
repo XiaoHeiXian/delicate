@@ -1,0 +1,45 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 吃啥
+    </navigator>
+  </bar>
+</custom>
+<view class='padding-xs flex align-center' style='margin-top:{{CustomBar}}px;margin-bottom:{{CustomBar}}px'>
+  <view class='flex-sub text-center'>
+    <view class='text-xl padding'>
+      一会吃<text class='text-black text-bold'>{{suiji}}</text>
+    </view>
+  </view>
+</view>
+<view>
+  <view style='width:120px;margin:10px auto'>
+    <button bindtap='choose' class='bg-gradual-orange padding text-center shadow-blur' style='width:120px;border-radius:50rpx'>
+      {{action}}
+    </button>
+  </view>
+</view>
+<view class='padding-xs flex align-center'>
+  <view class='flex-sub text-center'>
+    <text class='text-grey' bindtap="showModal" data-target="menuModal">{自定义候选菜单}</text>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='menuModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-gray justify-end">
+      <view class='content'>~~ 一会吃啥 ~~</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='cu-bar padding-xl bg-gray justify-end' wx:hide="{{modalName==null}}">
+        <textarea value='{{eat}}' maxlength='-1' hidden="{{modalName==null}}" bindinput='bindinput'></textarea>
+    </view>
+    <view class="cu-bar bg-gray justify-end">
+      <view class='action'>
+        <button class='cu-btn line-green text-green' bindtap='hideModal'>取消</button>
+        <button class='cu-btn bg-green margin-left' bindtap='setFood'>确定</button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 图表
+    </navigator>
+  </bar>
+</custom>
+<scroll-view scroll-x class="bg-white nav text-center" style='height:5.5%'>
+  <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{type}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{item}}
+  </view>
+</scroll-view>
+<swiper class="screen-swiper bg-white" bindchange='pagechange' duration="500" current='{{TabCur}}' style="height: {{height}}px;">
+  <swiper-item>
+    <view style='margin-right: auto;  margin-left: auto; width:200px'>
+      <canvas canvas-id="ringCanvas" disable-scroll="true" class="ringCanvas" style="width:200px; height:200px;"></canvas>
+    </view>
+
+    <view style='padding:5px;width:133px;margin:5px auto;margin-bottom: 20px;'>
+      <view bindtap='DateLast'>
+        <text class='icon-back lg text-gray' style='float:left;height:26px;line-height: 26px;margin-right:15px'></text>
+      </view>
+
+      <picker mode="date" fields="month" value="{{date}}" start="2015-09" end="2020-09" bindchange="DateChange" style='border:1px solid grey;border-radius:12rpx;float:left'>
+        <view class="picker" style='padding:5px'>
+          {{date}}
+        </view>
+      </picker>
+
+      <view bindtap='DateNext'>
+        <text class='icon-right lg text-gray' style='height:26px;line-height: 26px;margin-left:15px'></text>
+      </view>
+    </view>
+
+    <view wx:for="{{charge}}" wx:key style='height:30px;'>
+      <view class='bg-{{item.colorName}} solid radius' style='padding:15rpx;float:left;width: 28rpx;margin-left:30px;margin-bottom:10px'></view>
+      <view style='float:left;margin-left:15rpx'>{{item.name}}</view>
+      <view style='float:left;margin-left:22%'>{{item.rate}}%</view>
+      <view style='float:right;margin-right:30px'>{{item.data}}</view>
+    </view>
+
+  </swiper-item>
+  <swiper-item>
+    <view style='margin-right: auto;  margin-left: auto; width:200px'>
+      <canvas canvas-id="ringCanvas2" disable-scroll="true" class="ringCanvas" style="width:200px; height:200px;"></canvas>
+    </view>
+  </swiper-item>
+</swiper>
+
+<!-- <canvas canvas-id="pieCanvas" disable-scroll="true" class="pieCanvas" style="width:300px; height:300px;"></canvas> -->

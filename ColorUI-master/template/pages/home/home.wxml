@@ -1,6 +1,6 @@
 <custom style="height:{{CustomBar}}px;">
   <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-    <view class='content'>随便写写</view>
+    <view class='content'>菜单</view>
   </bar>
 </custom>
 <view class='nav-list' style='margin-top:40rpx'>
