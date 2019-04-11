@@ -4,12 +4,22 @@
     "pages/home/home",
     "pages/mine/mine",
     "pages/menu/timeline/timeline",
+    "pages/menu/clock/clock",
+    "pages/menu/qrcode/qrcode",
+    "pages/menu/pinyin/pinyin",
+    "pages/menu/game/game",
+    "pages/menu/read/read",
+    "pages/menu/read/info/info",
+    "pages/menu/read/content/content",
+    "pages/menu/game/2048/2048",
+    "pages/menu/timeline/statistics",
     "pages/menu/things/things",
     "pages/menu/accounts/accounts",
     "pages/menu/accounts/wallet/wallet",
     "pages/menu/accounts/charts/charts",
     "pages/menu/accounts/me/me",
-    "pages/menu/eat/eat"
+    "pages/menu/eat/eat",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",

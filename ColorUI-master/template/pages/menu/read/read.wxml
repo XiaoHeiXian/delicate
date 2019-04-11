@@ -1,0 +1,48 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 读书
+    </navigator>
+  </bar>
+</custom>
+<view class="cu-bar tabbar" style='position:absolute;bottom:{{ispx}}px;width:100%'>
+  <view class="action text-blue">
+    <view class='fa fa-book' style='margin-bottom:5px'></view> 书架
+  </view>
+  <view class="action text-gray">
+    <navigator open-type="navigate" hover-class='none' url="">
+      <view class='fa fa-bars' style='margin-bottom:5px'></view> 精选
+    </navigator>
+  </view>
+  <!-- <view class="action text-gray add-action">
+    <button class='cu-btn icon-add bg-blue shadow' bindtap="showModal" data-target="ChooseModal"></button>
+    发布
+  </view> -->
+
+  <view class="action text-gray">
+    <navigator open-type="navigate" hover-class='none' url="">
+      <view class='fa fa-heart' style='margin-bottom:5px'>
+        <!-- <view class='cu-tag badge'>99</view> -->
+      </view>
+      comic
+    </navigator>
+  </view>
+  <view class="action text-gray">
+    <navigator open-type="navigate" hover-class='none' url="../accounts/me/me">
+      <view class='fa fa-user' style='margin-bottom:5px'>
+        <!-- <view class='cu-tag badge'></view> -->
+      </view>
+      用户
+    </navigator>
+  </view>
+</view>
+<view class='grid col-3 padding-sm'>
+  <view class='padding-sm' wx:for="{{bookList}}" wx:key wx:if="{{index < 12}}">
+    <view class='radius text-center shadow-blur'>
+      <navigator open-type="navigate" hover-class='none' url="../read/info/info">
+        <image src="{{item.book_image}}" style="width:80%;" mode="widthFix"></image>
+      </navigator>
+      <view class="margin-top-sm">{{item.book_name}}</view>
+    </view>
+  </view>
+</view>

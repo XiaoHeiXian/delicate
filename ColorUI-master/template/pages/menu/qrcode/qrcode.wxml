@@ -1,0 +1,28 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 二维码
+    </navigator>
+  </bar>
+</custom>
+<view class="container-box">
+    <view class="img-box">
+        <canvas bindtap="previewImg" hidden="{{canvasHidden}}" style="width: 686rpx;height: 686rpx;background:#f1f1f1;" canvas-id="mycanvas"/>
+        <!--<image bindtap="previewImg" mode="scaleToFill" src="{{imagePath}}"></image>-->
+    </view>
+    <form bindsubmit="formSubmit">
+        <view class="input-row">
+            <label>网址</label>
+            <input name='url' value='' type="text" maxlength="255" placeholder="{{placeholder}}"/>
+        </view>
+        <!--<view class="input-row">
+            <label>金额</label>
+            <input name="money" type="number" maxlength="7"  placeholder="1000000"/>
+        </view>-->
+        <button formType="submit" class='cu-btn block bg-green lg' style='width: 90%;margin:0 auto'>生成二维码</button>
+    </form>
+</view>
+<view hidden="{{maskHidden}}" class="mask"></view>
+<view class="canvas-box">
+    
+</view>

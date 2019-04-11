@@ -203,7 +203,7 @@ Page({
           today: formatDate,
           ispx: ispx
         })
-        
+
       }
     })
     //调用云函数
@@ -316,6 +316,7 @@ Page({
     this.setData({
       modalName: e.currentTarget.dataset.target
     })
+
   },
   hideModal(e) {
     this.setData({
@@ -371,7 +372,7 @@ Page({
     } else {
       //上次不是数字
       if (data != 0) {
-        
+
         //这一次是数字
         this.setData({
           screenNum: this.data.screenNum + data
@@ -393,7 +394,7 @@ Page({
     // console.log(this.data.screenNum);
     // console.log(this.data.cate);
     // console.log(this.data.cateIcon);
-    
+
 
     if (this.data.screenNum == 0) {
       console.log("请输入金额");
@@ -403,10 +404,10 @@ Page({
     } else {
       var type = "";
       var index = this.data.index;
-      if(index == 0){
+      if (index == 0) {
         type = "money";
       }
-      if(index == 1){
+      if (index == 1) {
         type = "card";
       }
       if (index == 2) {
@@ -528,7 +529,7 @@ Page({
     // this.setData({
     //   screenStr: result
     // });
-    
+
   },
   btnClear: function () {
     //把标记恢复成默认状态
@@ -705,16 +706,9 @@ Page({
     })
   },
   cateClick(e) {
-    var catei = "";
-    for (var i = 0; i < this.data.icon1.length; i++) {
-      if (this.data.icon1[i].title == e._relatedInfo.anchorRelatedText.substring(0, 2)) {
-        catei = this.data.icon1[i].name;
-        break;
-      }
-    }
     this.setData({
-      cate: e._relatedInfo.anchorRelatedText,
-      cateIcon: catei
+      cate: this.data.icon1[e.currentTarget.dataset.id].title,
+      cateIcon: this.data.icon1[e.currentTarget.dataset.id].name
     })
   }
 })

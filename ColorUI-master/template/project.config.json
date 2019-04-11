@@ -5,7 +5,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 16,
 			"list": [
 				{
 					"id": -1,
@@ -84,6 +84,76 @@
 					"id": -1,
 					"name": "eat",
 					"pathName": "pages/menu/eat/eat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "me",
+					"pathName": "pages/menu/accounts/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "statistics",
+					"pathName": "pages/menu/timeline/statistics",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "clock",
+					"pathName": "pages/menu/clock/clock",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pinyin",
+					"pathName": "pages/menu/pinyin/pinyin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qrcode",
+					"pathName": "pages/menu/qrcode/qrcode",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "game",
+					"pathName": "pages/menu/game/game",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "2048",
+					"pathName": "pages/menu/game/2048/2048",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "read",
+					"pathName": "pages/menu/read/read",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "info",
+					"pathName": "pages/menu/read/info/info",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "content",
+					"pathName": "pages/menu/read/content/content",
 					"scene": null
 				}
 			]

@@ -1,0 +1,19 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 游戏
+    </navigator>
+  </bar>
+</custom>
+
+<view class="cu-bar">
+  <view class='action' style='margin: 30px auto;margin-top:60px'>
+    <button class='cu-btn round bg-blue lg shadow' bindtap='toggleDelay'>玩啥</button>
+  </view>
+</view>
+
+<view class="padding-sm">
+  <view class='flex flex-wrap justify-around'>
+    <button class=' bg-{{item.color}} cu-btn {{toggleDelay?"animation-slide-bottom":""}} margin-sm basis-sm shadow' style='animation-delay: {{(index+1)*0.1}}s;flex-basis:80%;' wx:for="{{list}}" wx:key bindtap='go2game' id='{{item.name}}'>{{item.name}}</button>
+  </view>
+</view>

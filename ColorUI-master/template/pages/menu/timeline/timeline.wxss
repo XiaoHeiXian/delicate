@@ -1,1 +1,4 @@
 /* pages/menu/timeline/timeline.wxss */
+page{
+  background: #fff;
+}

@@ -1,0 +1,55 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 2048
+    </navigator>
+  </bar>
+</custom>
+<view class="container">
+
+  <view class="game-body" style='width:90%'>
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+    <view class="heading" style='height:55px'>
+      	<text class="title" style='height:33px'>2048</text>
+      	<view class="scores-container" style='width:60%;height:55px'>
+        	<view class="score-container" style='width:40%;height:55px'>{{score}}</view>
+      		<view class="best-container" style='width:40%;height:55px'>{{highscore}}</view>
+      	</view>
+    </view>
+
+    <view class="above-game">
+      	<text class="game-intro">你能拿到2048吗？</text>
+      	<text class="restart-button" bindtap="restart">新游戏</text>
+    </view>
+
+    <view class="game-container" style='width:100%;height:{{cellSize * 0.9 + 9}}px'>
+
+        <!--游戏结束显示  -->
+        <view class="game-message game-{{over ? (win ? 'won' : 'over') : ''}}">
+          	<text class="over-msg">{{overMsg}}</text>
+          	<view class="lower">
+	        	<!-- <text class="keep-playing-button">继续</text> -->
+          		<text class="retry-button" bindtap="restart">再试一次</text>
+        	</view>
+        </view>
+
+	    <view class="grid-container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" style='width:100%;height:{{cellSize * 0.9}}px'>
+			<view wx:for="{{grids}}" wx:for-index="rowIdx" wx:key="rowIdx" wx:for-item="row" class="grid-row" style='height:{{cellSize * 0.2}}px'>
+			  	<view wx:for="{{row}}" wx:for-index="colIdx" wx:key="colIdx" wx:for-item="cell" class="grid-cell" style='height:{{cellSize * 0.2 - 3}}px;width:{{cellSize * 0.2 - 3}}px'>
+			  		<view class="tile tile-{{cell.value}}" style='height:{{cellSize * 0.2 - 3}}px;width:{{cellSize * 0.2 - 3}}px'>
+			  			<view wx:if="{{cell}}" class="tile-inner" style='height:{{cellSize * 0.2 - 3}}px;width:{{cellSize * 0.2 - 3}}px;line-height: {{cellSize * 0.2 - 3}}px;'>
+			      			{{cell.value}}
+			      		</view>
+			  		</view>
+			  	</view>
+			</view>
+	    </view>
+
+  	</view>
+  	<!-- <view class="game-explanation">
+      <view class="important">如何开始：</view> 手指上下左右滑动
+    </view> -->
+</view>
+</view>

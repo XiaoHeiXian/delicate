@@ -1,90 +1,102 @@
 <custom style="height:{{CustomBar}}px;">
   <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
     <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
-      <icon class='icon-back' style='margin-top:35rpx;'/>
-      时间轴
+      <icon class='icon-back' style='margin-top:35rpx;' /> 时间轴
+    </navigator>
+    <navigator class='action' url='statistics' hover-class="none">
+      <text class='icon-rankfill'></text>
+      <text class="text-df">统计</text>
     </navigator>
   </bar>
 </custom>
-<timeline>
-  <time>昨天</time>
-  <item class='cur icon-noticefill'>
-    <view class="content bg-green shadow-blur">
-      <text>22:22</text> 【广州市】快件已到达地球
+<view style='padding:5px;width:158px;margin:5px auto;'>
+  <view bindtap='DateLast'>
+    <text class='icon-back lg text-gray' style='float:left;height:26px;line-height: 26px;margin-right:15px'></text>
+  </view>
+
+  <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange" style='border:1px solid grey;border-radius:12rpx;float:left'>
+    <view class="picker" style='padding:5px'>
+      {{date}}
     </view>
-  </item>
-  <item class='text-red icon-attentionforbidfill'>
-    <view class="content bg-red shadow-blur">
-      这是第一次，我家的铲屎官走了这么久。久到足足有三天！！
-    </view>
-  </item>
-  <item class='text-grey icon-evaluate_fill'>
-    <view class="content bg-grey shadow-blur">
-      这是第一次，我家的铲屎官走了这么久。
-    </view>
-  </item>
-  <item class='text-blue'>
-    <view class="bg-blue content">
-      <text>20:00</text> 【月球】快件已到达月球，准备发往地球
-    </view>
-    <view class="bg-cyan content">
-      <text>10:00</text> 【银河系】快件已到达银河系，准备发往月球
-    </view>
-  </item>
-</timeline>
+  </picker>
+
+  <view bindtap='DateNext'>
+    <text class='icon-right lg text-gray' style='height:26px;line-height: 26px;margin-left:15px'></text>
+  </view>
+</view>
 
 <timeline>
-  <time>06-17</time>
-  <item>
-    <view class="content">
-      <text>01:30</text> 【喵星】 MX-12138 已揽收，准备发往银河系
-    </view>
-  </item>
-</timeline>
-
-<timeline>
-  <time>06-17</time>
-  <item>
+  <time>{{subDate}}</time>
+  <item class='text-{{item.typeColor}}' wx:for="{{timelog}}" wx:key>
     <view class="content">
       <capsule class="radius">
-        <tag class="bg-cyan">上午</tag>
-        <tag class="line-cyan">10:00</tag>
+        <tag class="bg-{{item.typeColor}}">{{item.typeName}}</tag>
+        <tag class="line-{{item.typeColor}}">{{item.start}} - {{item.end}}</tag>
       </capsule>
-      <view class='margin-top'>这是第一次，我家的铲屎官走了这么久。久到足足有三天！！ 在听到他的脚步声响在楼梯间的那一刻，我简直想要破门而出，对着他狠狠地吼上10分钟，然后再看心情要不要他进门。</view>
+      <view class='margin-top'>{{item.content}}</view>
     </view>
   </item>
-  <item class='text-blue'>
-    <view class="bg-blue shadow-blur content">
-      <list class="menu menu-avatar radius">
-        <item>
-          <avatar class="round lg" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);"></avatar>
-          <view class='content'>
-            <view class='text-grey'>文晓港</view>
-            <view class='text-gray text-sm'>
-              <icon class='icon-infofill text-red'/> 消息未送达</view>
-          </view>
-          <view class='action'>
-            <view class='text-grey text-xs'>22:20</view>
-            <tag class="round grey sm">5</tag>
-          </view>
-        </item>
-        <item>
-          <avatar class="round lg" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
-            <tag class="badge">99+</tag>
-          </avatar>
-          <view class='content'>
-            <view class='text-grey'>文晓港
-              <tag class="round orange sm">SVIP</tag>
-            </view>
-            <view class='text-gray text-sm'>
-              <icon class='icon-redpacket_fill text-red'/> 收到红包</view>
-          </view>
-          <view class='action'>
-            <view class='text-grey text-xs'>22:20</view>
-            <icon class='icon-notice_forbid_fill text-gray'/>
-          </view>
-        </item>
-      </list>
+  <item class='text-{{lastColor}}'>
+    <view class="content bg-white">
+      <button class='cu-btn block bg-{{lastColor}}' style='width:46%' bindtap="showModal" data-target="ChooseModal">+</button>
     </view>
   </item>
+
 </timeline>
+
+<view class="cu-modal {{modalName=='ChooseModal'?'show':''}}" style='height:100vh'>
+
+  <view class="cu-dialog bg-gray">
+    <view class="cu-bar justify-end">
+      <view class='content'>添加日志</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+    <view class='title'>日期</view>
+    <picker mode="date" value="{{modalDate}}" start="2015-09-01" end="2020-09-01" bindchange="modalDateChange">
+      <view class="picker">
+        {{modalDate}}
+      </view>
+    </picker>
+  </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>开始</view>
+      <picker mode="time" value="{{start}}" start="00:00" end="23:59" bindchange="StartChange">
+        <view class="picker">
+          {{start}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>结束</view>
+      <picker mode="time" value="{{end}}" start="{{start}}" end="23:59" bindchange="EndChange">
+        <view class="picker">
+          {{end}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>类型</view>
+      <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <view class="picker">
+          {{picker[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>备注</view>
+      <input value='{{content}}' class='radius' name='input' bindinput='formNum'></input>
+      <text class='icon-radioboxfill text-{{color[index]}}'></text>
+    </view>
+    <view class="cu-bar justify-end">
+      <view class='action'>
+        <button class='cu-btn line-{{color[index]}} text-{{color[index]}}' bindtap='hideModal'>取消</button>
+        <button class='cu-btn bg-{{color[index]}} margin-left' bindtap='add'>确定</button>
+
+      </view>
+    </view>
+  </view>
+
+</view>

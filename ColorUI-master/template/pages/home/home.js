@@ -5,18 +5,17 @@ const app = getApp()
 Page({
   data: {
     elements: [
-      
       // { title: '物品', name: 'things', color: 'brown', icon: 'tagfill' },
-      
-      
       { title: '记账', name: 'accounts', color: 'blue', icon: 'vipcard' },
       { title: '吃啥', name: 'eat', color: 'cyan', icon: 'hot' },
-      
       // { title: '技能', name: 'list', color: 'pink', icon: 'list' },
-      
-      // { title: '时间管理', name: 'timeline', color: 'orange', icon: 'timefill' },
+      { title: '时间管理', name: 'timeline', color: 'green', icon: 'timefill' },
       // { title: '重要日', name: 'modal', color: 'grey', icon: 'squarecheckfill' },
-      // { title: '我的', name: 'avatar', color: 'red', icon: 'myfill' },
+      { title: '时钟', name: 'clock', color: 'olive', icon: 'time' },
+      { title: '拼音', name: 'pinyin', color: 'purple', icon: 'font' },
+      { title: '二维码', name: 'qrcode', color: 'mauve', icon: 'qrcode' },
+      { title: '读书', name: 'read', color: 'orange', icon: 'read' },
+      { title: '游戏', name: 'game', color: 'red', icon: 'game' },
     ],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,

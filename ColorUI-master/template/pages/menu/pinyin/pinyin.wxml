@@ -1,0 +1,14 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 拼音
+    </navigator>
+  </bar>
+</custom>
+<view class="container">
+  <view class="info-container">
+    <text class="pinyin-text">{{pinyinText}}</text>
+    <input focus="{{true}}" maxlength="1" bindinput="onInput" placeholder="" />
+    <text class="tip">输入汉字</text>
+  </view>
+</view>

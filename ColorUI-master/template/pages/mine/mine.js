@@ -11,7 +11,11 @@ Page({
     CustomBar: app.globalData.CustomBar,
     comment: [],
     message: "",
-    userInfo: {}
+    userInfo: {},
+    choose: false,
+    modalName: "",
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
   /**
@@ -42,20 +46,49 @@ Page({
         }
       })
     }
-
-    db.collection("comment").orderBy('created_time', 'desc').get({
+    //调用云函数
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
       success: res => {
-        //console.log(res)
         this.setData({
-          comment: res.data
+          openid: res.result.openid
         })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '查询记录失败'
-        })
-        console.error('[数据库] [查询记录] 失败：', err)
+        if (res.result.openid == 'ovRnj5I6pzs2YajCSvfPN_X6ILrQ'){
+          db.collection("comment").orderBy('createdTime', 'desc').get({
+            success: res => {
+              //console.log(res)
+              this.setData({
+                comment: res.data
+              })
+            },
+            fail: err => {
+              wx.showToast({
+                icon: 'none',
+                title: '查询记录失败'
+              })
+              console.error('[数据库] [查询记录] 失败：', err)
+            }
+          })
+        } else {
+          db.collection("comment").orderBy('createdTime', 'desc').where({
+            _openid: res.result.openid
+          }).get({
+            success: res => {
+              //console.log(res)
+              this.setData({
+                comment: res.data
+              })
+            },
+            fail: err => {
+              wx.showToast({
+                icon: 'none',
+                title: '查询记录失败'
+              })
+              console.error('[数据库] [查询记录] 失败：', err)
+            }
+          })
+        }
       }
     })
   },
@@ -115,77 +148,92 @@ Page({
     })
   },
 
-  send: function () {
-
-    if (this.data.message == ""){
-      wx.showToast({
-        icon: 'none',
-        title: '请输入留言内容'
-      })
-    } else {
-      var timestamp = Date.parse(new Date());
-      var date = new Date(timestamp);
-      //获取年份  
-      var Y = date.getFullYear();
-      //获取月份  
-      var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
-      //获取当日日期 
-      var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-      //获取时  
-      var h = (date.getHours() + 1 < 10 ? '0' + (date.getHours() + 1) : date.getHours() + 1);
-      //获取分  
-      var m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
-      //获取秒
-      var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-      var time = Y + '年' + M + '月' + D + '日 ' + h + ':' + m + ':' + s;
-
-      db.collection('comment').add({
-        data: {
-          message: this.data.message,
-          name: this.data.userInfo.nickName,
-          avatar: this.data.userInfo.avatarUrl,
-          time: time,
-          createdTime: new Date()
-        },
-        success: res => {
-          this.setData({
-            modalName: null,
-          })
-          wx.showToast({
-            icon: 'none',
-            title: '添加成功'
-          })
-          db.collection("comment").orderBy('created_time', 'desc').get({
-            success: res => {
-              //console.log(res)
-              this.setData({
-                comment: res.data
-              })
-            },
-            fail: err => {
-              wx.showToast({
-                icon: 'none',
-                title: '查询记录失败'
-              })
-              console.error('[数据库] [查询记录] 失败：', err)
-            }
-          })
-        },
-        fail: err => {
-          this.setData({
-            modalName: null,
-          })
-          wx.showToast({
-            icon: 'none',
-            title: '添加失败'
-          })
-        }
-      })
-
+  getUserInfo: function (e) {
+    if (!this.logged && e.detail.userInfo != null) {
+      app.globalData.userInfo = e.detail.userInfo;
       this.setData({
-        message: ""
+        userInfo: e.detail.userInfo
       })
     }
+  },
+
+  send: function () {
+
+    if (app.globalData.userInfo == null) {
+
+    } else {
+      if (this.data.message == "") {
+        wx.showToast({
+          icon: 'none',
+          title: '请输入留言内容'
+        })
+      } else {
+        var timestamp = Date.parse(new Date());
+        var date = new Date(timestamp);
+        //获取年份  
+        var Y = date.getFullYear();
+        //获取月份  
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+        //获取当日日期 
+        var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        //获取时  
+        var h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours());
+        //获取分  
+        var m = (date.getMinutes() < 10 ? '0' + (date.getMinutes()) : date.getMinutes());
+        //获取秒
+        var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+        var time = Y + '年' + M + '月' + D + '日 ' + h + ':' + m + ':' + s;
+
+        db.collection('comment').add({
+          data: {
+            message: this.data.message,
+            name: this.data.userInfo.nickName,
+            avatar: this.data.userInfo.avatarUrl,
+            time: time,
+            createdTime: new Date()
+          },
+          success: res => {
+            this.setData({
+              modalName: null,
+            })
+            wx.showToast({
+              icon: 'none',
+              title: '添加成功'
+            })
+            db.collection("comment").orderBy('createdTime', 'desc').get({
+              success: res => {
+                //console.log(res)
+                this.setData({
+                  comment: res.data
+                })
+              },
+              fail: err => {
+                wx.showToast({
+                  icon: 'none',
+                  title: '查询记录失败'
+                })
+                console.error('[数据库] [查询记录] 失败：', err)
+              }
+            })
+          },
+          fail: err => {
+            this.setData({
+              modalName: null,
+            })
+            wx.showToast({
+              icon: 'none',
+              title: '添加失败'
+            })
+          }
+        })
+
+        this.setData({
+          message: ""
+        })
+      }
+    }
+
+
   }
 
 })

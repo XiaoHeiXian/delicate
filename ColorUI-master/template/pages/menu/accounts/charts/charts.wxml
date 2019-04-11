@@ -17,8 +17,8 @@
     </view>
 
     <view style='padding:5px;width:133px;margin:5px auto;margin-bottom: 20px;'>
-      <view bindtap='DateLast'>
-        <text class='icon-back lg text-gray' style='float:left;height:26px;line-height: 26px;margin-right:15px'></text>
+      <view>
+        <text class='icon-back lg text-gray' style='float:left;height:26px;line-height: 26px;margin-right:15px' bindtap='DateLast'></text>
       </view>
 
       <picker mode="date" fields="month" value="{{date}}" start="2015-09" end="2020-09" bindchange="DateChange" style='border:1px solid grey;border-radius:12rpx;float:left'>
@@ -27,8 +27,8 @@
         </view>
       </picker>
 
-      <view bindtap='DateNext'>
-        <text class='icon-right lg text-gray' style='height:26px;line-height: 26px;margin-left:15px'></text>
+      <view>
+        <text class='icon-right lg text-gray' style='height:26px;line-height: 26px;margin-left:15px' bindtap='DateNext'></text>
       </view>
     </view>
 

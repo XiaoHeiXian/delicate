@@ -124,7 +124,7 @@
     <swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" bindchange='pagechange' duration="500" current='{{TabCur}}' style='height:{{swiperHeight}}px'>
       <swiper-item>
         <view class="cu-list grid col-6">
-          <view class="cu-item" wx:for="{{icon1}}" wx:key wx:if="{{item.isShow}}" style='width:16.6%;' bindtap="cateClick">
+          <view class="cu-item" wx:for="{{icon1}}" wx:key style='width:16.6%;' bindtap='cateClick' data-id="{{index}}">
             <text class='fa fa-{{item.name}} fa-2x text-grey' style='font-size:16px;'></text>
             <text style='font-size:12px;'>{{item.title}}</text>
           </view>
@@ -132,8 +132,8 @@
       </swiper-item>
       <swiper-item>
         <view class="cu-list grid col-6">
-          <view class="cu-item" wx:for="{{icon2}}" wx:key wx:if="{{item.isShow}}" style='width:16.6%;' bindtap="cateClick">
-            <text class='fa fa-{{item.name}} fa-2x text-grey' style='font-size:16px;'></text>
+          <view class="cu-item" wx:for="{{icon2}}" wx:key wx:if="{{item.isShow}}" style='width:16.6%;'>
+            <text class='fa fa-{{item.name}} fa-2x text-grey' style='font-size:16px;' bindtap='cateClick'></text>
             <text style='font-size:12px;'>{{item.title}}</text>
           </view>
         </view>

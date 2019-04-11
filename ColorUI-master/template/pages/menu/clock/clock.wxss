@@ -1,0 +1,10 @@
+/* pages/menu/clock/clock.wxss */
+.canvas{
+
+  width: 100%;
+
+  height: 100%;
+
+  position: fixed;
+
+}

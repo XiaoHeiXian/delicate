@@ -4,10 +4,22 @@
   </bar>
 </custom>
 <view class="cu-list menu menu-avatar comment solids-top">
+  <view class="cu-item">
+    <view class="cu-avatar round" style="background-image:url(https://ea-yyt.oss-cn-shenzhen.aliyuncs.com/ding.jpg);"></view>
+    <view class='content'>
+      <view class='text-grey'>搬砖工</view>
+      <view class='text-gray text-content text-df'>
+        我只是个置顶的
+      </view>
+      <view class='margin-top-sm flex justify-between'>
+        <view class='text-gray text-df'>2019年03月14日 12:31:07</view>
+      </view>
+    </view>
+  </view>
   <view class="cu-item" wx:for="{{comment}}" wx:key>
     <view class="cu-avatar round" style="background-image:url({{item.avatar}});"></view>
     <view class='content'>
-      <view class='text-grey'>{{item.name}}</view>
+      <view class='text-grey'>{{item.name == null ? "游客":item.name}}</view>
       <view class='text-gray text-content text-df'>
         {{item.message}}
       </view>
@@ -20,5 +32,5 @@
 <view class="cu-bar foot input">
   <!-- <input class='solid-bottom' focus="true" maxlength="300" cursor-spacing="10"></input> -->
   <input class='solid-bottom' maxlength="30" bindinput="messageInput" value='{{message}}'></input>
-  <button class='cu-btn bg-green shadow' bindtap='send'>发送</button>
+  <button class='cu-btn bg-green shadow' bindtap='send' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">发送</button>
 </view>

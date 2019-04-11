@@ -130,7 +130,8 @@ Page({
             name: '成交量1',
             data: 15,
             stroke: false,
-            color: colors[0]
+            color: colors[0],
+            
           }, {
             name: '成交量2',
             data: 35,
@@ -320,10 +321,12 @@ Page({
           object.name = "支出";
           object.data = 0;
           object.stroke = false;
-          object.color = "#fff";
-          object.colorName = "white";
+          object.color = "#0081ff";
+          object.colorName = colors[6];
 
           charge.push(object);
+          charge.push(object);
+
 
           console.log(charge);
 
@@ -428,10 +431,12 @@ Page({
           object.name = "支出";
           object.data = 0;
           object.stroke = false;
-          object.color = "#fff";
-          object.colorName = "white";
+          object.color = "#0081ff";
+          object.colorName = colors[6];
 
           charge.push(object);
+          charge.push(object);
+
 
           console.log(charge);
 
@@ -450,9 +455,9 @@ Page({
           })
 
         } else {
-          // chart.updateData({
-          //   series: charge
-          // })
+          chart.updateData({
+            series: charge
+          })
         }
       }
     })
@@ -535,10 +540,12 @@ Page({
           object.name = "支出";
           object.data = 0;
           object.stroke = false;
-          object.color = "#fff";
-          object.colorName = "white";
+          object.color = "#0081ff";
+          object.colorName = colors[6];
 
           charge.push(object);
+          charge.push(object);
+
 
           console.log(charge);
 

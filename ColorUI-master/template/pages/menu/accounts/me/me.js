@@ -8,13 +8,65 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    list: [
+      {
+        name: '微信开发者工具',
+        color: 'blue'
+      }, {
+        name: 'Color UI',
+        color: 'cyan'
+      },
+      {
+        name: '云开发 · 数据库',
+        color: 'green'
+      },
+      {
+        name: '云开发 · 云函数',
+        color: 'olive'
+      }, {
+        name: 'wx-charts',
+        color: 'yellow'
+      },
+      {
+        name: '和...',
+        color: 'orange'
+      },
+      {
+        name: '搬运工',
+        color: 'red'
+      },
+      {
+        name: '构成',
+        color: 'pink'
+      }
+    ],
+    toggleDelay: false
+  },
+  toggleDelay() {
+    var that = this;
+    that.setData({
+      toggleDelay: true
+    })
+    setTimeout(function () {
+      that.setData({
+        toggleDelay: false
+      })
+    }, 2000)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    that.setData({
+      toggleDelay: true
+    })
+    setTimeout(function () {
+      that.setData({
+        toggleDelay: false
+      })
+    }, 2000)
   },
 
   /**

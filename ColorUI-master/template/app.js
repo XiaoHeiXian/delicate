@@ -1,3 +1,10 @@
+// ,
+// {
+//   "pagePath": "pages/about/about",
+//     "iconPath": "/images/tabbar/about.png",
+//       "selectedIconPath": "/images/tabbar/about_cur.png",
+//         "text": "关于"
+// }
 //app.js
 App({
   onLaunch: function () {
