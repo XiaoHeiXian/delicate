@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 16,
+			"current": 23,
 			"list": [
 				{
 					"id": -1,
@@ -154,6 +154,55 @@
 					"id": -1,
 					"name": "content",
 					"pathName": "pages/menu/read/content/content",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "things",
+					"pathName": "pages/menu/things/things",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "jh",
+					"pathName": "pages/menu/game/jh/jh",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "rw",
+					"pathName": "pages/menu/game/jh/rw/rw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "sp",
+					"pathName": "pages/menu/game/jh/sp/sp",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "detail",
+					"pathName": "pages/menu/game/jh/sp/detail",
+					"query": "id=sp5&name=火鸡大餐",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "yys",
+					"pathName": "pages/menu/game/yys/yys",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "yysdesign",
+					"pathName": "pages/menu/game/yys/design",
 					"scene": null
 				}
 			]

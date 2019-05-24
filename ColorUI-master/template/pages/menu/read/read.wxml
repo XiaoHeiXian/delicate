@@ -5,11 +5,17 @@
     </navigator>
   </bar>
 </custom>
+<bar class="search fixed" style="top:{{CustomBar}}px">
+  <view class='serach-form round'>
+    <icon class="icon-search" />
+    <input type="text" placeholder="搜索书籍/作者" confirm-type="search" bindblur='searchThing' />
+  </view>
+</bar>
 <view class="cu-bar tabbar" style='position:absolute;bottom:{{ispx}}px;width:100%'>
   <view class="action text-blue">
     <view class='fa fa-book' style='margin-bottom:5px'></view> 书架
   </view>
-  <view class="action text-gray">
+  <view class="action text-gray"  bindlongtap="showModal" data-target="DialogModal2">
     <navigator open-type="navigate" hover-class='none' url="">
       <view class='fa fa-bars' style='margin-bottom:5px'></view> 精选
     </navigator>
@@ -19,7 +25,7 @@
     发布
   </view> -->
 
-  <view class="action text-gray">
+  <view class="action text-gray"  bindlongtap="showModal" data-target="DialogModal2">
     <navigator open-type="navigate" hover-class='none' url="">
       <view class='fa fa-heart' style='margin-bottom:5px'>
         <!-- <view class='cu-tag badge'>99</view> -->
@@ -36,13 +42,38 @@
     </navigator>
   </view>
 </view>
-<view class='grid col-3 padding-sm'>
-  <view class='padding-sm' wx:for="{{bookList}}" wx:key wx:if="{{index < 12}}">
-    <view class='radius text-center shadow-blur'>
-      <navigator open-type="navigate" hover-class='none' url="../read/info/info">
-        <image src="{{item.book_image}}" style="width:80%;" mode="widthFix"></image>
-      </navigator>
-      <view class="margin-top-sm">{{item.book_name}}</view>
+<scroll-view scroll-y style='margin-top:50px;height:600px' bindscroll="viewScroll">
+  <view class='grid col-3 padding-sm'>
+    <view class='padding-sm' wx:for="{{bookList}}" wx:key="item.id">
+      <view class='radius text-center shadow-blur'>
+        <navigator open-type="navigate" hover-class='none' url="../read/info/info?book_id={{item.id}}">
+          <image src="{{arr[index] ? item.book_image : default_img}}" style="width:80%;" mode="widthFix" lazy-load='true'></image>
+        </navigator>
+        <view class="margin-top-sm">{{item.book_name}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}"> 
+    <!-- <view class='icon-emojifill text-orange'></view> -->
+    <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+    <view class='gray-text'>加载中...</view>
+</view>
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>不想做</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class='padding-xl'>
+      有意见？
+    </view>
+    <view class="cu-bar bg-white">
+      <view class='action margin-0 flex-sub text-green ' bindtap='hideModal'>没得</view>
+      <view class='action margin-0 flex-sub text-green solid-left' bindtap='hideModal'>木有</view>
+      <view class='action margin-0 flex-sub  solid-left' bindtap='hideModal'>No</view>
     </view>
   </view>
 </view>

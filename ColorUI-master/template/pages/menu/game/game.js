@@ -10,11 +10,42 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    color: app.globalData.color,
     list: [
       {
         name: '2048',
+        title: '2048',
         color: 'blue'
-      }
+      }, 
+      {
+        name: "jh",
+        title: "饥荒攻略",
+        color: 'cyan'
+      },
+      {
+        name: 'yys',
+        title: "阴阳师活动提醒",
+        color: 'green'
+      },
+      // {
+      //   name: '云开发 · 云函数',
+      //   color: 'olive'
+      // }, {
+      //   name: 'wx-charts',
+      //   color: 'yellow'
+      // },
+      // {
+      //   name: '和...',
+      //   color: 'orange'
+      // },
+      // {
+      //   name: '搬运工',
+      //   color: 'red'
+      // },
+      // {
+      //   name: '构成',
+      //   color: 'pink'
+      // }
     ],
     toggleDelay: false
   },
@@ -23,6 +54,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      color: app.globalData.color
+    })
     var that = this;
     that.setData({
       toggleDelay: true

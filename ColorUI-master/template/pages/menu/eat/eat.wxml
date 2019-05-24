@@ -8,15 +8,18 @@
 <view class='padding-xs flex align-center' style='margin-top:{{CustomBar}}px;margin-bottom:{{CustomBar}}px'>
   <view class='flex-sub text-center'>
     <view class='text-xl padding'>
-      一会吃<text class='text-black text-bold'>{{suiji}}</text>
+      一会吃
+      <text class='text-black text-bold'>{{suiji}}</text>
     </view>
   </view>
 </view>
 <view>
   <view style='width:120px;margin:10px auto'>
-    <button bindtap='choose' class='bg-gradual-orange padding text-center shadow-blur' style='width:120px;border-radius:50rpx'>
-      {{action}}
-    </button>
+    <form class="form_item" bindsubmit='gorRunnerLobby' report-submit='true' data-type="1">
+      <button bindtap='choose' form-type='submit' class='bg-gradual-orange padding text-center shadow-blur' style='width:120px;border-radius:50rpx'>
+        {{action}}
+      </button>
+    </form>
   </view>
 </view>
 <view class='padding-xs flex align-center'>
@@ -33,7 +36,7 @@
       </view>
     </view>
     <view class='cu-bar padding-xl bg-gray justify-end' wx:hide="{{modalName==null}}">
-        <textarea value='{{eat}}' maxlength='-1' hidden="{{modalName==null}}" bindinput='bindinput'></textarea>
+      <textarea value='{{eat}}' maxlength='-1' hidden="{{modalName==null}}" bindinput='bindinput'></textarea>
     </view>
     <view class="cu-bar bg-gray justify-end">
       <view class='action'>

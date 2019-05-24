@@ -5,3 +5,58 @@
     </navigator>
   </bar>
 </custom>
+<bar class="search fixed" style="top:{{CustomBar}}px;">
+  <view class='serach-form round'>
+    <!-- <icon class="icon-search" />
+    <input type="text" placeholder="搜索章节" confirm-type="search" bindinput='searchThing' /> -->
+    <button class='bg-blue radius light' bindtap="lastChapter" style="height: 100%;width: 15%;padding:10rpx 10rpx 10rpx;margin-right:24%">
+      上一章
+    </button>
+<!-- 
+    <view style='width:16%;height: 100%;'>
+      <view bindtap='DateLast'>
+        <text class='icon-back lg text-gray'></text>
+      </view>
+
+      <view>
+        <text class='lg text-gray'>{{fontSize}}</text>
+      </view>
+
+      <view bindtap='DateNext'>
+        <text class='icon-right lg text-gray'></text>
+      </view>
+    </view> -->
+
+    <button class='icon-back bg-blue radius light' bindtap="subSize" style="height: 100%;width: 5%;padding:10rpx 10rpx 10rpx;margin-left:2%;">
+      
+    </button>
+    <button class='radius light' bindtap="nextChapter" style="height: 100%;width: 6%;padding:10rpx 10rpx 10rpx;margin-left:2%;">
+      {{fontSize}}
+    </button>
+    <button class='icon-right bg-blue radius light' bindtap="addSize" style="height: 100%;width: 5%;padding:10rpx 10rpx 10rpx;margin-left:2%;">
+      
+    </button>
+    <button class='bg-blue radius light' bindtap="nextChapter" style="height: 100%;width: 15%;padding:10rpx 10rpx 10rpx;margin-left:24%">
+      下一章
+    </button>
+  </view>
+</bar>
+<scroll-view scroll-y style='height:700px'>
+  <view class="cu-card article {{isCard?'no-card':''}}" style='margin-top:50px'>
+    <view wx:for="1" wx:key class="cu-item shadow" style='margin:0'>
+      <view class="title" style='text-align:center'>{{book_info.title}}</view>
+      <view class="content">
+        <view class="desc">
+          <view class='text-content' style='height:auto;'>
+            <text style='font-size:{{fontSize}}rpx'>{{content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='icon-emojifill text-orange'></view> -->
+  <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+  <view class='gray-text'>加载中...</view>
+</view>

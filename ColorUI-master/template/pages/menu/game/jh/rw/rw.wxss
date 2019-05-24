@@ -1,0 +1,10 @@
+/* pages/menu/game/jh/rw/rw.wxss */
+
+.rw-text-content {
+  padding: 0 30rpx 0;
+  max-height: auto;
+  overflow: hidden;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  line-height:1.6;
+}

@@ -19,6 +19,7 @@ Page({
     ],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    color: app.globalData.color,
     //motto: 'Hi 开发者！',
     motto: 'Hi！',
     userInfo: {},
@@ -32,6 +33,9 @@ Page({
     })
   },
   onLoad: function () {
-    
+    this.setData({
+      color: app.globalData.color
+    })
+    console.log(app.globalData.color)
   }
 })

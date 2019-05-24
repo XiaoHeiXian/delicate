@@ -12,6 +12,12 @@
     "pages/menu/read/info/info",
     "pages/menu/read/content/content",
     "pages/menu/game/2048/2048",
+    "pages/menu/game/jh/jh",
+    "pages/menu/game/yys/yys",
+    "pages/menu/game/yys/design",
+    "pages/menu/game/jh/rw/rw",
+    "pages/menu/game/jh/sp/sp",
+    "pages/menu/game/jh/sp/detail",
     "pages/menu/timeline/statistics",
     "pages/menu/things/things",
     "pages/menu/accounts/accounts",
@@ -51,6 +57,12 @@
         "iconPath": "/images/tabbar/plugin.png",
         "selectedIconPath": "/images/tabbar/plugin_cur.png",
         "text": "留言"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "/images/tabbar/about.png",
+        "selectedIconPath": "/images/tabbar/about_cur.png",
+        "text": "关于"
       }
     ]
   }

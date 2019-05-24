@@ -1,0 +1,437 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 人物
+    </navigator>
+  </bar>
+</custom>
+<scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" style='background-color:#36464f;'>
+  <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{character}}" wx:key bindtap='tabSelect' data-id="{{index}}" style='color:gray;'>
+    {{item.name}}
+  </view>
+</scroll-view>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" bindchange='pagechange' duration="500" current='{{TabCur}}' style='height:{{swiperHeight}}px'>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view wx:for="1" wx:key class="cu-item shadow">
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar lg">
+                <image src="../../../../../images/jh/icon/wilson.png"></image>
+              </view>
+              <view class='content' style='flex:0.8'>
+                <view>威尔逊</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Wilson
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  200
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text class='icon-titles text-grey'>我将用我的头脑征服这个世界！</text>
+          </view>
+          <!-- <view class="grid {{isCard?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);" wx:for="{{isCard?9:1}}" wx:key>
+            </view>
+          </view>
+          <view class='text-gray text-sm text-right padding'>
+            <text class="icon-attentionfill"></text> 10
+            <text class="icon-appreciatefill"></text> 20
+            <text class="icon-messagefill"></text> 30
+          </view> -->
+          <view class='rw-text-content'>
+            <text style='font-size:26rpx'>威尔逊.柏斯科.希伯理(Wilson Percival Higgsbury)是饥荒中第一个可以使用的角色，也是目前唯一已知背景的角色，因此故事背景以他做为主角。他想成为一个机智中不失风趣的科学家。他还留有一个看起来像w的发型。</text>
+          </view>
+          <view class='text-content'>
+            <text style='font-weight:bold;font-size:36rpx;'>能力</text>
+          </view>
+          <view class='rw-text-content solids-top' style='max-height:auto;'>
+            <text style='font-size:26rpx'>威尔逊 是唯二能长出胡须的角色 （另一个是 韦伯）。
+          威尔逊的胡须有两个基本功能：
+          提供一个135秒的保温来防止冰冻。
+          可以剃掉来取得黑色毛发以做出 肉像，同时回复10精神值。
+
+          日数	胡子大小	掉落数量	保温时间
+          4天	半张脸	1 （0.25/天）	15秒
+          7天	长至胸口	3 （0.43/天）	45秒
+          15天	长到拖地	9 （0.6/天）	135秒
+
+          胡须要到第16天才会长至最长（第一天不长）， 由于默认的冬天要20天才会来临， 胡须对于冬天生存十分有帮助。 实际上如果加上 象鼻背心， 牛皮， 保暖石 ，威尔逊 就有高达 735的保温时间。 即是玩家可以离开温暖源头很长时间，735 点等于 6、7分钟不会被冻伤，比1个全日还要再多42秒！
+
+          这令他可以更加方便的在冬天找寻食物。这亦令到他可以花更多时间和怪物战斗，而不用寻找保温的设备。 这对于寻找寒冬克烈芬象 十分有帮助，因为寻象通常要走上一段距离。同时，由于可活动时间变长，意味着玩家可以专心做出兔子陷阱，或者找更多木头作为燃料。
+            </text>
+          </view>
+          <view class='text-content'>
+            <text style='font-weight:bold;font-size:36rpx;'>背景</text>
+          </view>
+          <view class='rw-text-content solids-top' style='max-height:auto;'>
+            <text style='font-size:26rpx'>在Klei Entertainment的YouTube频道与其网站中，披露了威尔逊的由来。他是唯一一个有官方故事的角色。
+
+            威尔逊曾经住在山中的简陋木屋，成天做着各种实验。在多次的尝试与失败后，他停了下来，质疑自己是否能够成功。这时，他听见奇怪的声音从收音机里传出（后来在影片中证实了是麦斯威尔）。麦斯威尔传授威尔逊各种祕密和禁忌知识，威尔逊十分乐意并如饥似渴地学习。于是威尔逊习得大量的资讯。但威尔逊不知道的是，几乎所有他学得的知识都和科学无关。
+
+            运用这些新学得的知识，他开始制造一个神奇的机器。当机器做好时，威尔逊自己都难以置信。麦斯威尔叫他按下开关，威尔逊却踌躇不已。在麦斯威尔的多次怂恿并大喊著“快按！”后，他才照做。威尔逊这时才发现原来这个机器是个传送门，而且是通往死亡之路。随着麦斯威尔神经质的大笑，暗影触手从地上窜出，并将威尔逊拉进了饥荒的奇异蛮荒世界中。
+            </text>
+          </view>
+
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view wx:for="1" wx:key class="cu-item shadow">
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar lg">
+                <image src="../../../../../images/jh/icon/willow.png"></image>
+              </view>
+              <view class='content' style='flex:0.8'>
+                <view>薇洛</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Willow
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  120
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text class='icon-titles text-grey'>万物在燃烧时总会更美丽！</text>
+          </view>
+          <!-- <view class="grid {{isCard?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);" wx:for="{{isCard?9:1}}" wx:key>
+            </view>
+          </view>
+          <view class='text-gray text-sm text-right padding'>
+            <text class="icon-attentionfill"></text> 10
+            <text class="icon-appreciatefill"></text> 20
+            <text class="icon-messagefill"></text> 30
+          </view> -->
+          <view class='rw-text-content'>
+            <text style='font-size:26rpx'>相比单机，薇洛(Willow) 的改动很大。但是，依然是一个在联机中相当弱势的一个角色。
+              官方已经预告将在4月底重做薇洛。
+
+              # 目前的薇洛
+              # 联机的薇洛在低精神值时不会放火! (强调)
+              # 薇洛出生自带一个并且可以制作打火机(光源栏)和伯尼熊(生存)
+              # 薇洛不再完全免疫火焰，只能短暂免疫火
+              # 薇洛在火焰旁边增加的理智更多
+              薇洛的特殊能力就是拥有薇洛的打火机。当开始游戏时，她的背包内就会有打火机。打火机的光比火炬微弱，它可以用来点燃物品。
+
+            </text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view wx:for="1" wx:key class="cu-item shadow">
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar lg">
+                <image src="../../../../../images/jh/icon/wolfgang.png"></image>
+              </view>
+              <view class='content'>
+                <view>沃尔夫冈</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Wolfgang
+                </view>
+              </view>
+              <view class='content'>
+                <view>空手伤害</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  0.5 - 2.0倍
+                </view>
+              </view>
+              <view class='content flex-sub' style='flex:1.5;'>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:100rpx;float:right'>
+                  <view style='height:48rpx;width:48rpx;margin:0 auto'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  200
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:100rpx;float:right;text-align: center;'>
+                  150-300
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text class='icon-titles text-grey'>我是最强壮的人，没人比我更强壮！</text>
+          </view>
+          <!-- <view class="grid {{isCard?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);" wx:for="{{isCard?9:1}}" wx:key>
+            </view>
+          </view>
+          <view class='text-gray text-sm text-right padding'>
+            <text class="icon-attentionfill"></text> 10
+            <text class="icon-appreciatefill"></text> 20
+            <text class="icon-messagefill"></text> 30
+          </view> -->
+          <view class='rw-text-content'>
+            <text style='font-size:26rpx'>沃尔夫冈是第二个可以解锁的角色(320 经验，可参考角色)。他在作战时可以做出更高伤害，而且也有比较高的生命值。这让他在对抗怪物时会有更大的优势。他也有一个高达300点上限的胃，起始时则有200点，但是根据他的饥饿值的不同，消耗的速度也有不同。
+
+      沃尔夫冈在面对任何种类的敌人时，理智,值也会下降得更快，约快于其他角色10%
+      
+      强势状态:即沃尔夫冈较强的状态。当沃尔夫冈在其他状态下的饥饿值升到226点或以上时，他的攻击倍数将会变为1.25+(饥饿度,-225)/100。在这个状态中沃尔夫冈的衣服会破裂，肌肉会变大，
+
+      形亦会露出来。在这个状态中，他会长得更高。
+            </text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view wx:for="1" wx:key class="cu-item shadow">
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar lg">
+                <image src="../../../../../images/jh/icon/wilson.png"></image>
+              </view>
+              <view class='content flex-sub'>
+                <view>威尔逊</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Wilson
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view>
+              <view class='content flex-sub'>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                </view>
+                <view style='height:48rpx;width:48rpx;float:right'>
+                  <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  200
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+                <view class='text-gray text-sm justify-between' style='width:48rpx;float:right;text-align: center;'>
+                  150
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text class='icon-titles text-grey'>我将用我的头脑征服这个世界！</text>
+          </view>
+          <!-- <view class="grid {{isCard?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);" wx:for="{{isCard?9:1}}" wx:key>
+            </view>
+          </view>
+          <view class='text-gray text-sm text-right padding'>
+            <text class="icon-attentionfill"></text> 10
+            <text class="icon-appreciatefill"></text> 20
+            <text class="icon-messagefill"></text> 30
+          </view> -->
+          <view class='rw-text-content'>
+            <text style='font-size:26rpx'>威尔逊.柏斯科.希伯理(Wilson Percival Higgsbury)是饥荒中第一个可以使用的角色，也是目前唯一已知背景的角色，因此故事背景以他做为主角。他想成为一个机智中不失风趣的科学家。他还留有一个看起来像w的发型。</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view wx:for="1" wx:key class="cu-item shadow">
+          <view class="cu-list menu menu-avatar">
+            <view class="cu-item">
+              <view class="cu-avatar lg">
+                <image src="../../../../../images/jh/icon/wx78.png"></image>
+              </view>
+              <view class='content' style='flex:0.8;'>
+                <view>WX-78</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  WX-78
+                </view>
+              </view>
+              <view class='content' style='flex:0.5;'>
+                <view>伤害</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view>
+              <view class='content flex-sub' style='flex:2;'>
+                <view style='height:96rpx;width:96rpx;float:right'>
+                  <view style='height:48rpx;width:48rpx;margin:0 auto'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:100rpx;float:right;text-align: center;'>
+                    100-300
+                  </view>
+                </view>
+                <view style='height:96rpx;width:96rpx;float:right'>
+                  <view style='height:48rpx;width:48rpx;margin:0 auto'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:100rpx;float:right;text-align: center;'>
+                    100-400
+                  </view>
+                </view>
+                <view style='height:96rpx;width:96rpx;float:right'>
+                  <view style='height:48rpx;width:48rpx;margin:0 auto'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:100rpx;float:right;text-align: center;'>
+                    100-200
+                  </view>
+                </view>
+
+              </view>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text class='icon-titles text-grey'>移情组建未响应！</text>
+          </view>
+          <!-- <view class="grid {{isCard?'col-3 grid-square':'col-1'}} flex-sub padding-lr">
+            <view class="bg-img {{isCard?'':'only-img'}}" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);" wx:for="{{isCard?9:1}}" wx:key>
+            </view>
+          </view>
+          <view class='text-gray text-sm text-right padding'>
+            <text class="icon-attentionfill"></text> 10
+            <text class="icon-appreciatefill"></text> 20
+            <text class="icon-messagefill"></text> 30
+          </view> -->
+          <view class='rw-text-content'>
+            <text style='font-size:26rpx'> WX-78是第四个可以借由累积经验值来解锁的角色，所需经验值为960点。WX-78是一台可自给自足的机器人，它讨厌所有的生命。它能吃不新鲜或变质的食物且不会有饥饿值补充的减免惩罚与生命值损失。但原本就有扣属性的食物即使新鲜仍然会使它属性下降(例如吃怪兽肉)
+
+      身为一个机器人，会因为淋雨而受到伤害。与雨量多寡无关，WX-78在雨中每3- 5秒会受到0.5点生命值的伤害。当受到伤害时角色不会僵硬,就如同受到火烧伤害一样，人 物依然可以顺畅行走，且会不断有有短路般的火花冒出，这小火花可提供足够的光源阻止暗影生物的攻击，但WX-78仍会有大量的理智值损失。可以使用雨伞来防止生命值损失及火花的产生。</text>
+          </view>
+          <view class='text-content'>
+            <text style='font-weight:bold;font-size:36rpx;'>能力</text>
+          </view>
+          <view class='rw-text-content solids-top' style='max-height:auto;'>
+            <text style='font-size:26rpx'>1.第一个特殊能力是系统超载（system overload）， 当被雷电打中时就会发动。 在雷雨中， WX-78 就好像避雷针一样会吸引雷电，亦有机会将接近的物品燃烧起来。 这能令到WX-78有生命和攻击力的加成， 同时身体会发出近似于火把的光。 这亦可以令到它避免冻伤和受到相关的影响。（席编：原文没有提及能否避免RG中的夏天过热问题。。。而且冬天会降雷吗？不是只会下雪吗？印象中好像没有耶？） WX-78 每一次系统超载都会损失33点理智值，而且即使已经在超载中，仍然可以再次超载（被连续电中？你在对女友发誓会一心一意吗？）。 系统过载会持续一整天的游戏时间。 接近避雷针或是拿着雨伞时可以避免被雷击中。
+
+SYSTEM OVERLOAD 同样会被以下行为产生的闪电劈中之后启动：
+
+利用 Telelocator Staff进行传送， 因为传送既会产生雷电。
+
+在Touch Stone重生。
+
+试图破坏Ancient Pseudoscience Station（用 hammer或Damaged Rooks） 在 Ruins（地下二层/废墟），因为这个行为会引来雷电。
+2.第二个特殊能力是WX-78 可以通过进食 齿轮来进行升级。 这个升级包含了生命，饱食度和理智的上限。
+
+透过进食齿轮来升级的上限是 15等。 但即使已经到达了上限等级时， WX-78 仍然能够通过进食齿轮来获得 60 生命， 50 理智 和 75 饱食度。 这意味着对于 WX-78 而言， 齿轮是一种永不变坏的粮食， 虽然齿轮大部份时候都只能在Ruins（地下二层/废墟）中找到。
+
+每一次进食 齿轮来进行升级 可以获得 20 生命上限， 6.66 饱食上限和 13.33 理智上限。 详情可以参考下图。
+</text>
+            <view class='text-content'>
+              <image src="../../../../../images/jh/icon/sj.png" mode="widthFix"></image>
+            </view>
+          </view>
+          <view class='text-content'>
+            <text style='font-weight:bold;font-size:36rpx;'>背景</text>
+          </view>
+          <view class='rw-text-content solids-top' style='max-height:auto;'>
+            <text style='font-size:26rpx'>WX-78的声音听起来就好像 "疯狂的加工合成器"。
+
+WX-78 是有骨头的。 在Reign of Giants DLC 中如果被雷打中你就可以看到它的骨头， 那意味首WE-78可能是一个穿上机器装备的人，或者是将金属结构建设在人骨的外面。
+
+WX-78 被称作 "讨厌所有生物"; 但它对机械也表现得冷漠， saying "OH NO。 WHAT HAVE I DONE TO YOU？" 。
+
+WX-78 除了它他的‘同理心模组’外， 绝大部份的身体机能都是存在的，例如胃， 有眼睛用途的光学传感器，一个有大脑功能的CPU ， 而当它睡时则会开启睡眠模式。
+
+WX-78 的名字来源有可能是参考 RX-78系列机动战士。其中最有名的是 RX-78-2，也就是阿姆罗的座机，钢弹。
+
+有一组数字出现在 WX-78's 的角度图象中。 那是 11522914。 如果将它们变回英文，（Via 1=A， 2=B， etc。） 那将会串出 KEVIN，即 lead developer of Don't Starve。
+
+如果在 Adventure Mode中点选 WX-78， 游戏中会用 "it" 来形容， 那代表这个AI并没有性别之分。
+
+即使 WX-78显得讨厌所有生物， 它对于蜜蜂却有较软的态度， 食人花亦是一样， 当检查他们时 WX-78 says "A MINDLESS DRONE。 I LIKE HIM。" and "AWW， IT IS JUST AS EVIL AS I AM。"
+
+尽管它是人造的， 当检查 Science Machine 或者 Metal Potato ThingWX-78 显示出它可能是有母亲的， 它亦有可能是由 Maxwell 做出来，作为发条军团之一。
+
+虽然下雨会令它受伤， 但进食一些有水份的食物时，例如 Pomegranates， Meaty Stew， or even Watermelons 它也不会扣血的。 这可能是因为它体内防水。
+
+WX-78的说话中，标点符号会有一些不一致。
+
+它会在行走时产生一个微弱的“keek'噪音。
+
+有部份的说话可能有不乎。 当检查Slurper时WX-78会说 "它违反了我的嗅觉模组" ，但当检查 Durian， 它会说 "幸好我没有鼻子"。 这可能只是一个错误。</text>
+          </view>
+
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

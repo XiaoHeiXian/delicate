@@ -211,4 +211,9 @@ Page({
       modalName: null,
     })
   },
+
+  gorRunnerLobby(e){
+    console.log(e);
+  }
+
 })

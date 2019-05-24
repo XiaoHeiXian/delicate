@@ -1,0 +1,131 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-{{indexColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text>
+      <text class='text-cut'>活动提醒</text>
+    </navigator>
+    <navigator class='action' url='design' hover-class="none">
+      <text class='icon-skinfill'></text>
+      <text class="text-df">设置</text>
+    </navigator>
+  </view>
+</view>
+<view style='padding:5px;width:158px;margin:5px auto;'>
+  <view bindtap='DateLast'>
+    <text class='icon-back lg text-gray' style='float:left;height:26px;line-height: 26px;margin-right:15px'></text>
+  </view>
+
+  <picker mode="date" value="{{date}}" start="{{date}}" end="{{endDate}}" bindchange="DateChange" style='border:1px solid grey;border-radius:12rpx;float:left'>
+    <view class="picker" style='padding:5px'>
+      {{date}}
+    </view>
+  </picker>
+
+  <view bindtap='DateNext'>
+    <text class='icon-right lg text-gray' style='height:26px;line-height: 26px;margin-left:15px'></text>
+  </view>
+</view>
+
+<!-- <timeline>
+  <time>{{subDate}}</time>
+  <item class='text-green' wx:for="{{planList}}" wx:key>
+    <view class="content bg-gradual-green shadow-blur">
+      <capsule class="radius">
+        <tag class="bg-{{item.typeColor}}">{{item.typeName}}</tag>
+        <tag class="line-{{item.typeColor}}">{{item.taskTime}}</tag>
+      </capsule>
+      <capsule class="radius">
+        <tag class="bg-red" data-id="{{item._id}}" bindtap="remove" style="float:right">删除</tag>
+      </capsule>
+      <view class='margin-top-sm text-content'>
+        <view>活动名称： {{item.taskName}}</view>
+        <view>活动名称： {{item.taskName}}</view>
+        <view>活动名称： {{item.taskName}}</view>
+        <view>活动名称： {{item.taskName}}</view>
+        <view>活动名称： {{item.taskName}}</view>
+      </view>
+    </view>
+  </item>
+  
+</timeline> -->
+
+<view class="cu-timeline">
+  <view class='cu-item text-{{indexColor}}' wx:for="{{planList}}" wx:key>
+    <view class="bg-gradual-{{indexColor}} content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-{{indexColor}}">提醒时间</view>
+        <view class="cu-tag line-white">{{item.taskTime}}</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>活动名称： {{item.taskName}}</view>
+        <view>目标描述： {{item.taskDesc}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-{{indexColor}}'>
+    <button class='cu-btn block bg-{{indexColor}}' style='width:46%' bindtap="showModal" data-target="ChooseModal">+</button>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='ChooseModal'?'show':''}}" style='height:100vh'>
+
+  <view class="cu-dialog bg-gray">
+    <view class="cu-bar justify-end">
+      <view class='content'>添加提醒</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>活动名称</view>
+      <input value='{{name}}' class='radius' name='input' bindinput='formName'></input>
+      <text class='icon-radioboxfill text-{{indexColor}}'></text>
+    </view>
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>目标描述</view>
+      <input value='{{desc}}' class='radius' name='input' bindinput='formDesc'></input>
+      <text class='icon-radioboxfill text-{{indexColor}}'></text>
+    </view>
+    <!-- <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>提醒日期</view>
+      <picker mode="date" value="{{modalDate}}" start="{{date}}" end="{{endDate}}" bindchange="modalDateChange">
+        <view class="picker">
+          {{modalDate}}
+        </view>
+      </picker>
+    </view> -->
+    <!-- <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>开始</view>
+      <picker mode="time" value="{{start}}" start="00:00" end="23:59" bindchange="StartChange">
+        <view class="picker">
+          {{start}}
+        </view>
+      </picker>
+    </view> -->
+    <!-- <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>类型</view>
+      <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <view class="picker">
+          {{picker[index]}}
+        </view>
+      </picker>
+    </view> -->
+    <view class="cu-form-group" style='margin: 0 40rpx'>
+      <view class='title'>提醒时间</view>
+      <picker mode="time" value="{{end}}" start="{{time}}" end="23:59" bindchange="EndChange">
+        <view class="picker">
+          {{end}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-bar justify-end">
+      <view class='action'>
+        <button class='cu-btn line-{{indexColor}} text-{{indexColor}}' bindtap='hideModal'>取消</button>
+        <form class="form_item" bindsubmit='add' report-submit='true' data-type="1">
+          <button form-type='submit' class='cu-btn bg-{{indexColor}} margin-left'>确定</button>
+        </form>
+      </view>
+    </view>
+  </view>
+
+</view>

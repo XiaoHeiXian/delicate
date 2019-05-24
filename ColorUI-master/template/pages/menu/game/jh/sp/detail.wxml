@@ -1,0 +1,142 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> {{name}}
+    </navigator>
+  </bar>
+</custom>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" bindchange='pagechange' duration="500" current='{{TabCur}}' style='height:{{swiperHeight}}px'>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="1" wx:key style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/sp/{{detail.img}}.jpg"></image>
+              </view>
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{detail.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{detail.e_name}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{detail.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{detail.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{detail.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{detail.bad}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-card case {{isCard?'no-card':''}}">
+        <view wx:for="{{1}}" wx:key class="cu-item shadow" style='margin:30rpx 30rpx 0 30rpx;border-radius:0rpx;'>
+          <view style='width: 100%'>
+            <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/type/guo.PNG" mode="widthFix" style='width:12%;margin:2%;float:right'></image>
+          </view>
+        </view>
+        <view wx:for="{{1}}" wx:key class="cu-item shadow" style='margin:0 30rpx;border-radius:0rpx;'>
+          <view class='image' style='width:80%;margin:0 auto'>
+            <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/food/{{detail.example1}}.PNG" mode="widthFix" style='width:21%;margin:2%;float:left'></image>
+            <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/food/{{detail.example2}}.PNG" mode="widthFix" style='width:21%;margin:2%;float:left'></image>
+            <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/food/{{detail.example3}}.PNG" mode="widthFix" style='width:21%;margin:2%;float:left'></image>
+            <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/food/{{detail.example4}}.PNG" mode="widthFix" style='width:21%;margin:2%;float:left'></image>
+          </view>
+        </view>
+        <view class="cu-item shadow" style='margin:0 30rpx;border-radius:0rpx;'>
+          <view style='margin:60rpx auto;width: 100%;'>
+            <view style="margin:0px;float:left;width: 49%;">
+              <view style='margin: {{margin_type}};'>
+                <view wx:for="{{must}}" wx:key wx:for-item="mustItem">
+                  <view wx:for="{{mustItem}}" wx:key wx:for-item="item">
+                    <view style='width: 30px;float:left;'>
+                      <image style='width: 100%;' src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/type/{{item.img}}.png" mode="widthFix"></image>
+                    </view>
+                    <view style='width: 30px;height: 30px;line-height: 30px;float:left;text-align: center;'>
+                      {{item.num}}
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view style='float:left;width: 2px;height: 60px; background: #e0e0e0;"'></view>
+            <view style="margin:0px;float:left;width: 49%;">
+              <view style='margin:0 30%;text-align: center;'>
+                <view style='width: 30px;height: 30px;line-height: 30px;float:left;text-align: center;'>
+                  无
+                </view>
+                <view style='width: 30px;float:left;'>
+                  <image style='width: 100%;' src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/type/{{detail.no}}.png" mode="widthFix"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:for="{{1}}" wx:key class="cu-item shadow" style='margin:0 30rpx; padding-bottom: 20rpx;border-radius:0rpx;'>
+          <view style='margin:0rpx auto;width: 100%;'>
+            <view style="margin:0px;float:left;width: 49%;">
+              <view style='text-align: center;'>必须材料</view>
+            </view>
+            <view style='float:left;width: 2px;height: 20px; background: #e0e0e0;"'></view>
+            <view style="margin:0px;float:left;width: 49%;">
+              <view style='text-align: center;'>不能添加材料</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-card article {{isCard?'no-card':''}}">
+        <view wx:for="{{1}}" wx:key class="cu-item shadow" style='margin:30rpx 30rpx 0 30rpx;border-radius:0rpx;'>
+          <view class="cu-bar bg-white solid-bottom">
+            <view class='action'>
+              <text class='icon-titles text-orange '></text> 烹饪时间
+            </view>
+            <view class='action'>
+              {{detail.time}}s
+            </view>
+          </view>
+          <view class="cu-bar bg-white solid-bottom">
+            <view class='action'>
+              <text class='icon-titles text-orange'></text> 生成代码
+            </view>
+            <view class='action'>
+              {{detail.code}}
+            </view>
+          </view>
+          <view class="cu-bar bg-white solid-bottom">
+            <view class='action'>
+              <text class='icon-titles text-orange'></text> 介绍
+            </view>
+          </view>
+          <view class="cu-bar bg-white solid-bottom">
+            <view class='action'>
+              {{detail.desc}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

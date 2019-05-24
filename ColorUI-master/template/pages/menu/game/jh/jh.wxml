@@ -1,0 +1,25 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 饥荒攻略
+    </navigator>
+  </bar>
+</custom>
+<bar class="search fixed" style="top:{{CustomBar}}px;height:64rpx">
+  <view class='serach-form round' style="margin:0">
+    <icon class="icon-search" />
+    <input type="text" placeholder="百科内容搜索" confirm-type="search" bindinput='searchThing' />
+  </view>
+</bar>
+<view class='grid col-6 padding-sm' style='margin-top:32px;background-color:#36464f;'>
+  <view class='padding-sm' wx:for="{{menuList}}" wx:key style='padding:0px;'>
+    <navigator open-type="navigate" hover-class='none' url="../jh/{{item.title}}/{{item.title}}">
+      <view class='padding radius text-center shadow-blur' style='background-color:#36464f;'>
+        <view>
+          <image src="../../../../images/jh/{{item.title}}.png" style='width:{{img_size}}px;height:{{img_size}}px'></image>
+        </view>
+        <view class='margin-top-sm text-Abc' style='margin-top:10rpx;color:#eee;'>{{item.name}}</view>
+      </view>
+    </navigator>
+  </view>
+</view>

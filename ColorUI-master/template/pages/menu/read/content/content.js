@@ -8,7 +8,11 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    book_info: {}
+    book_info: {},
+    content: "",
+    options: {},
+    loadModal: true,
+    fontSize: 40
   },
 
   /**
@@ -18,19 +22,124 @@ Page({
     //调用云函数
     wx.cloud.callFunction({
       name: 'tinyanbook',
-      data: { url: "book?action=chapter_detail_vue&web_url=http://www.uuxs.net/book/41/41959/&book_id=81&chapter_name=%E7%AC%AC%E4%B8%80%E5%8D%83%E4%BA%94%E7%99%BE%E4%BA%94%E5%8D%81%E4%B9%9D%E7%AB%A0%20%E8%81%AA%E6%98%8E%E7%9A%84%E6%B0%91%E6%97%8F&chapter_url=20145297.html" },
+      data: { url: "book?action=chapter_detail_vue&web_url=" + options.web_url + "&book_id=" + options.book_id + "&chapter_name=" + encodeURIComponent(options.chapter_name) + "&chapter_url=" + options.chapter_url },
       success: res => {
         var book_info = JSON.parse(res.result);
-        //var description = book_info.book_info.description.replace(/<br>/g, "\n");
-        console.log(book_info);
+        var content = book_info.content.replace(/<br\/>/g, "\n");
+        content = content.substring(19, content.length - 6);
         this.setData({
-          book_info: book_info
+          book_info: book_info,
+          content: content,
+          options: options,
+          loadModal: false
         })
       },
       fail: err => {
         console.log(err)
       }
     })
+  },
+
+  lastChapter: function () {
+
+    this.setData({
+      loadModal: true
+    })
+    
+    var options = this.options;
+
+    //调用云函数
+    wx.cloud.callFunction({
+      name: 'tinyanbook',
+      data: { url: "book?action=chapter_detail_vue&web_url=" + options.web_url + "&book_id=" + options.book_id + "&chapter_name=" + encodeURIComponent(options.chapter_name) + "&chapter_url=" + options.chapter_url + "&type=1" },
+      success: res => {
+        var book_info = JSON.parse(res.result);
+        var content = book_info.content.replace(/<br\/>/g, "\n");
+        content = content.substring(19, content.length - 6);
+        options.book_id = book_info.book_id;
+        options.web_url = book_info.web_url;
+        options.chapter_name = book_info.chapter_name;
+        options.chapter_url = book_info.chapter_url;
+        this.setData({
+          book_info: book_info,
+          content: content,
+          options: options,
+          loadModal: false
+        })
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
+  },
+
+  nextChapter: function () {
+
+    this.setData({
+      loadModal: true
+    })
+
+    var options = this.options;
+
+    //调用云函数
+    wx.cloud.callFunction({
+      name: 'tinyanbook',
+      data: { url: "book?action=chapter_detail_vue&web_url=" + options.web_url + "&book_id=" + options.book_id + "&chapter_name=" + encodeURIComponent(options.chapter_name) + "&chapter_url=" + options.chapter_url + "&type=2"},
+      success: res => {
+        var book_info = JSON.parse(res.result);
+        var content = book_info.content.replace(/<br\/>/g, "\n");
+        content = content.substring(19, content.length - 6);
+        options.book_id = book_info.book_id;
+        options.web_url = book_info.web_url;
+        options.chapter_name = book_info.chapter_name;
+        options.chapter_url = book_info.chapter_url;
+        this.setData({
+          book_info: book_info,
+          content: content,
+          options: options,
+          loadModal: false
+        })
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
+  },
+
+  subSize() {
+    this.setData({
+      fontSize: this.data.fontSize - 1
+    })
+  },
+
+  addSize() {
+    this.setData({
+      fontSize: this.data.fontSize + 1
+    })
+  },
+
+  searchThing(e) {
+
+    let key = e.detail.value;
+
+    if (key != "") {
+      //console.log(encodeURIComponent(key))
+      //调用云函数
+      wx.cloud.callFunction({
+        name: 'tinyanbook',
+        data: { url: "keyword_query?action=search_vue&keywords=" + encodeURIComponent(key) },
+        success: res => {
+          var bookList = JSON.parse(res.result);
+          console.log(bookList)
+          this.setData({
+            bookList: bookList.book_list
+          })
+        },
+        fail: err => {
+          console.log(err)
+        }
+      })
+    }
   },
 
   /**

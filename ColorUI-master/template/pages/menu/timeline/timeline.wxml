@@ -33,6 +33,9 @@
         <tag class="bg-{{item.typeColor}}">{{item.typeName}}</tag>
         <tag class="line-{{item.typeColor}}">{{item.start}} - {{item.end}}</tag>
       </capsule>
+      <capsule class="radius">
+        <tag class="bg-red" data-id="{{item._id}}" bindtap="remove" style="float:right">删除</tag>
+      </capsule>
       <view class='margin-top'>{{item.content}}</view>
     </view>
   </item>

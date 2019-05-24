@@ -1,0 +1,303 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 食谱
+    </navigator>
+  </bar>
+</custom>
+<scroll-view scroll-x class="nav" scroll-with-animation scroll-left="{{scrollLeft}}" style='background-color:#36464f;'>
+  <view class="cu-item {{index==TabCur?'text-white cur':''}}" wx:for="{{character}}" wx:key bindtap='tabSelect' data-id="{{index}}" style='color:gray;'>
+    {{item.name}}
+  </view>
+</scroll-view>
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" bindchange='pagechange' duration="500" current='{{TabCur}}' style='height:{{swiperHeight}}px'>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="{{sp}}" wx:key="index" style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;' bindtap='toDetail' 
+            data-id='sp{{index}}' data-name='{{item.name}}'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/sp/{{item.img}}.jpg"></image>
+              </view>
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{item.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.fl}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="{{rl}}" wx:key style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/rl/{{item.img}}.png"></image>
+              </view>
+              <!-- <view class='content' style='flex:0.8'>
+                <view>薇洛</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Willow
+                </view>
+              </view> -->
+              <!-- <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view> -->
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{item.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.fl}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="{{sc}}" wx:key style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/sc/{{item.img}}.png"></image>
+              </view>
+              <!-- <view class='content' style='flex:0.8'>
+                <view>薇洛</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Willow
+                </view>
+              </view> -->
+              <!-- <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view> -->
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{item.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.fl}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="{{sg}}" wx:key style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/sg/{{item.img}}.png"></image>
+              </view>
+              <!-- <view class='content' style='flex:0.8'>
+                <view>薇洛</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Willow
+                </view>
+              </view> -->
+              <!-- <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view> -->
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{item.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.fl}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view scroll-y style='height:{{swiperHeight}}px'>
+      <view class="cu-card dynamic {{isCard?'no-card':''}}">
+        <view class="cu-item shadow" style='margin:0'>
+          <view class="cu-list menu menu-avatar solids-top" wx:for="{{d}}" wx:key style='margin-top:0'>
+            <view class="cu-item" style='height:230rpx;padding-left:270rpx;'>
+              <view class="cu-avatar lg" style='width:210rpx;height:180rpx'>
+                <image src="https://7a68-zhishi-7d0b6f-1258272137.tcb.qcloud.la/sg/{{item.img}}.png"></image>
+              </view>
+              <!-- <view class='content' style='flex:0.8'>
+                <view>薇洛</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  Willow
+                </view>
+              </view> -->
+              <!-- <view class='content flex-sub'>
+                <view>空手伤害/10</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  1.0倍
+                </view>
+              </view> -->
+              <view class='content flex-sub' style='height:90px;'>
+                <view>{{item.name}}</view>
+                <view style='font-size:25rpx;color:grey;'>{{item.title}}</view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/brain.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/heart.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/hunger.jpg"></image>
+                  </view>
+                  <view style='height:50rpx;width:50rpx;float:right'>
+                    <image src="../../../../../images/jh/icon/fl.jpg"></image>
+                  </view>
+
+                </view>
+                <view class='text-gray text-sm flex justify-between'>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.hunger}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.heart}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.brain}}
+                  </view>
+                  <view class='text-gray text-sm justify-between' style='width:50rpx;float:right;text-align: center;'>
+                    {{item.fl}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>

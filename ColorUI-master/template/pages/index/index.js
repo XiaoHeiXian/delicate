@@ -9,6 +9,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    color: app.globalData.color,
     //motto: 'Hi 开发者！',
     motto: 'Hi 体验者！',
     userInfo: {},
@@ -33,32 +34,57 @@ Page({
         this.setData({
           openid: res.result.openid
         })
+        db.collection('setting').where({
+          _openid: res.result.openid
+        }).get({
+          success: res => {
+            if (res.data.length == 0) {
+
+            } else {
+              this.setData({
+                color: res.data[0].color
+              })
+              app.globalData.color = res.data[0].color;
+            }
+
+          },
+          fail: err => {
+            wx.showToast({
+              icon: 'none',
+              title: '查询记录失败'
+            })
+            console.error('[数据库] [查询记录] 失败：', err)
+          }
+        })
+        table.where({
+          _openid: res.result.openid
+        }).get({
+          success: res => {
+            //console.log('[数据库] [查询记录] 成功: ', res)
+            this.setData({
+              resdata: JSON.stringify(res.data)
+            })
+            if (this.data.resdata == '[]') {
+              table.add({
+                data: {
+                  money_num: 0,
+                  weixin_num: 0,
+                  alipay_num: 0,
+                  card_num: 0,
+                },
+                success: res => {
+                  //console.log("[数据库] [添加记录] 成功: ", res)
+                }
+              });
+            }
+          }
+        })
       }
     })
     if (this.data.openid != ''){
-      table.where({
-        _openid: this.data.openid
-      }).get({
-        success: res => {
-          //console.log('[数据库] [查询记录] 成功: ', res)
-          this.setData({
-            resdata: JSON.stringify(res.data)
-          })
-          if (this.data.resdata == '[]') {
-            table.add({
-              data: {
-                money_num: 0,
-                weixin_num: 0,
-                alipay_num: 0,
-                card_num: 0,
-              },
-              success: res => {
-                //console.log("[数据库] [添加记录] 成功: ", res)
-              }
-            });
-          }
-        }
-      })
+      
+    } else {
+      console.log("openid为空")
     }
     
     if (app.globalData.userInfo) {

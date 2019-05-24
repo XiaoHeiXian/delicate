@@ -29,23 +29,33 @@
 </view>
 <view class="cu-card article {{isCard?'no-card':''}}">
   <view wx:for="1" wx:key class="cu-item shadow" style='padding-bottom:0px;margin-top:0px'>
-    <view class="cu-bar bg-white solid-bottom margin-top">
-      <view class='action'>
-        目录
-      </view>
-      <view class='action'>
-        <text class='text-blue'>排序</text>
-      </view>
-    </view>
-    <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
-      <view wx:for="{{chapter_list}}" wx:key class="cu-item arrow" style='min-height:80rpx;padding:0 30px 0 0'>
-        <navigator open-type="navigate" hover-class='none' url="../content/content">
-          <view class='content'>
-            <text class='icon-formfill text-blue'></text>
-            <text class='text-grey'>{{item.chapter_name}}</text>
-          </view>
-        </navigator>
+    <view class="cu-bar bg-white solid-bottom">
+      <bar class="search">
+        <view class='serach-form round'>
+          <icon class="icon-search" />
+          <input type="text" placeholder="搜索章节" confirm-type="search" bindblur='searchThing' />
+        </view>
+      </bar>
+      <view class='action' bindtap='arrow'>
+        <text class='text-blue'>{{arrow_text}}</text>
       </view>
     </view>
+    <scroll-view scroll-y style='height:{{scroll_height}}px' bindscrolltolower="toLowFun">
+      <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+        <view wx:for="{{chapter_show_list}}" wx:key class="cu-item arrow" style='min-height:80rpx;padding:0 30px 0 0' wx:if="{{item.index > 0}}">
+          <navigator open-type="navigate" hover-class='none' url="../content/content?book_id={{item.book_id}}&web_url={{item.web_url}}&chapter_name={{item.chapter_name}}&chapter_url={{item.chapter_url}}">
+            <view class='content'>
+              <text class='icon-formfill text-blue'></text>
+              <text class='text-grey'>{{item.chapter_name}}</text>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
   </view>
+</view>
+<view class='cu-load load-modal' wx:if="{{loadModal}}"> 
+    <!-- <view class='icon-emojifill text-orange'></view> -->
+    <!-- <image src='/images/logo.png' class='png' mode='aspectFit'></image> -->
+    <view class='gray-text'>加载中...</view>
 </view>

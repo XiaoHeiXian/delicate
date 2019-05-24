@@ -56,6 +56,7 @@ App({
   },
   globalData: {
     userInfo: null,
+    color: "blue",
     ColorList: [{
       title: '嫣红',
       name: 'red',

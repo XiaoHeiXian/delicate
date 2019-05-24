@@ -128,7 +128,8 @@ Page({
             title: '添加成功'
           })
           db.collection('timelog').where({
-            _openid: this.data.openid
+            _openid: this.data.openid,
+            date: this.data.date
           }).get({
             success: res => {
               this.setData({
@@ -158,4 +159,43 @@ Page({
       content: e.detail.value
     })
   },
+  remove: function (e) {
+    db.collection('timelog').doc(e.currentTarget.dataset.id).remove({
+      success: res => {
+        wx.showToast({
+          title: '删除成功',
+          duration: 1000
+        })
+        db.collection('timelog').where({
+          _openid: this.data.openid,
+          date: this.data.date
+        }).get({
+          success: res => {
+            if (res.data.length != 0) {
+              this.setData({
+                timelog: res.data,
+                lastColor: res.data[res.data.length - 1].typeColor
+              })
+            } else {
+              this.setData({
+                timelog: [],
+                lastColor: "blue"
+              })
+            }
+            
+          },
+          fail: err => {
+            console.error('[数据库] [查询记录] 失败：', err)
+          }
+        })
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '删除失败',
+        })
+        console.error('[数据库] [删除记录] 失败：', err)
+      }
+    })
+  }
 });

@@ -1,5 +1,5 @@
 <custom style="height:{{CustomBar}}px;">
-  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+  <bar class="fixed bg-gradual-{{color}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
     <view class='content'>菜单</view>
   </bar>
 </custom>
