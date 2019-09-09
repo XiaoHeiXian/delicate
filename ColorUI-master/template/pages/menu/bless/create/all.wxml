@@ -1,0 +1,38 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 全部音乐
+    </navigator>
+  </bar>
+</custom>
+<bar class="search fixed" style="top:{{CustomBar}}px">
+  <view class='serach-form round'>
+    <icon class="icon-search" />
+    <input type="text" placeholder="搜索书籍/作者" confirm-type="search" bindblur='searchThing' />
+  </view>
+</bar>
+<view class="cu-list menu menu-avatar" style='margin-top:50px;'>
+  <view class="cu-item " wx:for="{{12}}" wx:key>
+    <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
+    <view class='content'>
+      <view>喵星人互动群</view>
+      <view class='text-gray text-sm'>
+        喵星酱：喵喵喵！</view>
+    </view>
+  </view>
+  <view class="cu-item grayscale">
+    <view class="cu-avatar radius lg" style="background-image:url(https://image.weilanwl.com/img/square-3.jpg);"></view>
+    <view class='content'>
+      <view>喵星人互动群</view>
+      <view class='text-gray text-sm'>
+        喵星酱：喵喵喵！</view>
+    </view>
+  </view>
+</view>
+<view class='box' style='position:fixed;bottom:0;width:100%;'>
+  <view class="cu-bar tabbar bg-white" style='padding: 20rpx 0'>
+    <view class="cu-bar btn-group">
+      <button class='cu-btn bg-pink shadow-blur round'>制作</button>
+    </view>
+  </view>
+</view>

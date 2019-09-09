@@ -1,0 +1,68 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed myblack" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' />
+      <view class='content'>祝福圈</view>
+    </navigator>
+  </bar>
+</custom>
+<video src='{{playUrl}}' mode='widthFix' style='margin-top:-{{CustomBar}}px' autoplay='true'></video>
+<view style='position:fixed;bottom:0;width:100%;height:20rpx;background-color:#333'></view>
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="text-align: left;">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class='content'>评论</view>
+      <view class='action' bindtap='hideModal'>
+        <text class='icon-close text-red'></text>
+      </view>
+    </view>
+    <view class="cu-list menu menu-avatar comment solids-top" style='padding-bottom:50px'>
+      <view class="cu-item">
+        <view class="cu-avatar round" style="background-image:url(https://ea-yyt.oss-cn-shenzhen.aliyuncs.com/ding.jpg);"></view>
+        <view class='content'>
+          <view class='text-grey'>搬砖工</view>
+          <view class='text-gray text-content text-df'>
+            我只是个置顶的
+          </view>
+          <view class='margin-top-sm flex justify-between'>
+            <view class='text-gray text-df'>2019年03月14日 12:31:07</view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-item" wx:for="{{comment}}" wx:key>
+        <view class="cu-avatar round" style="background-image:url({{item.avatar}});"></view>
+        <view class='content'>
+          <view class='text-grey'>{{item.name == null ? "游客":item.name}}</view>
+          <view class='text-gray text-content text-df'>
+            {{item.message}}
+          </view>
+          <view class='margin-top-sm flex justify-between'>
+            <view class='text-gray text-df'>{{item.time}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="cu-bar foot input">
+      <!-- <input class='solid-bottom' focus="true" maxlength="300" cursor-spacing="10"></input> -->
+      <input class='solid-bottom' maxlength="30" bindinput="messageInput" value='{{message}}'></input>
+      <button class='cu-btn bg-green shadow' bindtap='send' wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">发送</button>
+    </view>
+  </view>
+</view>
+<view class='box ' style='position:fixed;bottom:20rpx;width:100%; '>
+  <view class="cu-bar tabbar">
+    <view class="action text-{{apprecolor}}" bindtap='appreciate'>
+      <view class='icon-appreciatefill '></view> 点赞
+    </view>
+    <view class="action text-gray" bindtap='showModal' data-target='bottomModal'>
+      <view class='icon-messagefill '></view> 评论
+    </view>
+    <view class="action text-green">
+      <view class='icon-weixin'>
+        <!-- <view class='cu-tag badge '></view> -->
+      </view>
+      分享
+    </view>
+  </view>
+</view>

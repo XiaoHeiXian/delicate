@@ -8,6 +8,7 @@
     "pages/menu/qrcode/qrcode",
     "pages/menu/pinyin/pinyin",
     "pages/menu/game/game",
+    "pages/menu/laji/laji",
     "pages/menu/read/read",
     "pages/menu/read/info/info",
     "pages/menu/read/content/content",
@@ -25,6 +26,10 @@
     "pages/menu/accounts/charts/charts",
     "pages/menu/accounts/me/me",
     "pages/menu/eat/eat",
+    "pages/menu/bless/bless",
+    "pages/menu/bless/video/video",
+    "pages/menu/bless/create/create",
+    "pages/menu/bless/create/all",
     "pages/about/about"
   ],
   "window":{

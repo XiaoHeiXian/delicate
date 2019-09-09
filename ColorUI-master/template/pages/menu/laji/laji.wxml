@@ -1,0 +1,13 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed bg-gradual-{{color}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 垃圾分类
+    </navigator>
+  </bar>
+</custom>
+<bar class="search fixed" style="top:{{CustomBar}}px">
+  <view class='serach-form round'>
+    <icon class="icon-search" />
+    <input type="text" placeholder="输入垃圾" confirm-type="search" bindblur='searchThing' />
+  </view>
+</bar>

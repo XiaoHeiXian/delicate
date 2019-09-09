@@ -38,7 +38,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 28,
 			"list": [
 				{
 					"id": -1,
@@ -203,6 +203,41 @@
 					"id": -1,
 					"name": "yysdesign",
 					"pathName": "pages/menu/game/yys/design",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "laji",
+					"pathName": "pages/menu/laji/laji",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bless",
+					"pathName": "pages/menu/bless/bless",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "video",
+					"pathName": "pages/menu/bless/video/video",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "create",
+					"pathName": "pages/menu/bless/create/create",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "all",
+					"pathName": "pages/menu/bless/create/all",
 					"scene": null
 				}
 			]

@@ -1,0 +1,66 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 祝福圈
+    </navigator>
+  </bar>
+</custom>
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{tagList}}" wx:key bindtap='tabSelect' data-id="{{index}}" data-tag="{{item.k}}">
+    {{item.v}}
+  </view>
+</scroll-view>
+
+<!-- bindscroll="viewScroll" -->
+<scroll-view scroll-y style='height:600px' bindscrolltolower="scrollHandler" lower-threshold="200" style='padding-bottom:80px'>
+  <view class="cu-card case no-card">
+    <view wx:for="{{videoList}}" wx:key class="cu-item shadow">
+      <view class='image' bindtap='toVideo' data-url='{{item.playUrl}}'>
+        <!-- <image src="https://i0.hdslb.com/bfs/archive/876d48201f7d46acbb803025e8462104f0ed403a.jpg@320w_200h.webp" mode="widthFix"></image> -->
+        <image src="{{item.cover}}" mode="widthFix"></image>
+        <view class="cu-tag bg-blue">{{item.duration}}</view>
+        <view class='cu-bar bg-shadeBottom'>{{item.title}}</view>
+      </view>
+      <view class="cu-list menu menu-avatar">
+        <view class="cu-item" style='height:100rpx;padding-left:100rpx;'>
+          <view class="cu-avatar round" style="background-image:url(https://image.weilanwl.com/img/square-4.jpg);"></view>
+          <view class='content flex-sub' style='line-height: 3.2em; font-size: 30rpx'>
+            <!-- <view class='text-grey'>猪皮蛋</view> -->
+            <view class='text-gray flex justify-between'>
+              {{item.userName}}
+              <view class="text-gray">
+                <text class="icon-attentionfill"></text> {{item.view}}
+                <text class="icon-appreciatefill"></text> {{item.like}}
+                <text class="icon-messagefill" bindtap="comment" data-url='{{item.playUrl}}'></text> {{item.comment}}
+                <!-- <text class=' icon-weixin '></text> 分享 -->
+                <button class='cu-btn round bg-green shadow ' style='padding:0 10rpx;font-size:30rpx;height:50rpx ' open-type="share" data-id='{{index}}'>
+                  <text class='icon-weixin ' style='margin-right:10rpx '></text> 分享
+                </button>
+                <!-- <button class="icon-weixin bg-green round" open-type="share" data-id='{{index}} '>分享</button> -->
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='box' style='position:fixed;bottom:20rpx;width:100%; '>
+  <view class="cu-bar tabbar bg-black">
+    <view class="action text-pink">
+      <view class='icon-search '></view> 发现
+    </view>
+    <view class="action text-gray add-action">
+      <button class='cu-btn icon-add bg-pink shadow ' bindtap="toCreate"></button>
+      制作祝福
+    </view>
+    <view class="action text-gray">
+      <view class='icon-my '>
+        <!-- <view class='cu-tag badge '></view> -->
+      </view>
+      我的
+    </view>
+  </view>
+</view>
+<view class="bg-black" style='position:fixed;bottom:0;width:100%;height:20rpx'>
+</view>

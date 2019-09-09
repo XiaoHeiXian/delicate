@@ -1,0 +1,60 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-pink" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 制作祝福
+    </navigator>
+  </bar>
+</custom>
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-orange '></text> 极速模板
+  </view>
+</view>
+<view class="cu-form-group margin-bottom">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);">
+    </view>
+    <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+    </view>
+    <view class="padding-xs solids">
+      <text class='icon-cameraadd'></text>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-orange '></text> 音乐模板
+  </view>
+  <view class='action' bindtap="toAll">
+     全部音乐
+     <text class='icon-right'></text>
+  </view>
+</view>
+<view class="cu-form-group margin-bottom">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="padding-xs bg-img round" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);">
+    </view>
+    <view class="padding-xs bg-img round" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+    </view>
+    <view class="padding-xs solids round">
+      <text class='icon-cameraadd'></text>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-orange '></text> 高级模板
+  </view>
+</view>
+
+<view class="cu-form-group margin-bottom">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-1.jpg);">
+    </view>
+    <view class="padding-xs bg-img" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);">
+    </view>
+    <view class="padding-xs solids">
+      <text class='icon-cameraadd'></text>
+    </view>
+  </view>
+</view>
