@@ -1,0 +1,13 @@
+<custom style="height:{{CustomBar}}px;">
+  <bar class="fixed gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <icon class='icon-back' style='margin-top:35rpx;' /> 圈猫猫
+    </navigator>
+  </bar>
+</custom>
+<view class="text-center margin">
+  <text class="text-grey text-xl">{{motto}}</text>
+</view>
+<!-- canvas.wxml -->
+<canvas style="width: 100%; height: 360px;" canvas-id="firstCanvas" bindtouchend="click"></canvas>
+<!-- 当使用绝对定位时，文档流后边的 canvas 的显示层级高于前边的 canvas -->

@@ -27,10 +27,12 @@ Page({
         title: "阴阳师活动提醒",
         color: 'green'
       },
-      // {
-      //   name: '云开发 · 云函数',
-      //   color: 'olive'
-      // }, {
+      {
+        name: 'qmm',
+        title: "圈猫猫",
+        color: 'olive'
+      }, 
+      //{
       //   name: 'wx-charts',
       //   color: 'yellow'
       // },
