@@ -11,3 +11,4 @@
 <!-- canvas.wxml -->
 <canvas style="width: 100%; height: 360px;" canvas-id="firstCanvas" bindtouchend="click"></canvas>
 <!-- 当使用绝对定位时，文档流后边的 canvas 的显示层级高于前边的 canvas -->
+<canvas style="width: 100%; height: 360px;" canvas-id="secondCanvas" style='position:absolute;top:137px;width: 100%; height: 360px;' bindtouchend="click"></canvas>
